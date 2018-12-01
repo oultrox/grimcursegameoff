@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_Transitioner</name>
+    <events>
+        <event-group description="" sid="953271351324063" title="M_Transitioner">
+            <sub-events>
+                <event-group description="" sid="751225231679045" title="M_Transitioner[Init]">
+                    <sub-events>
+                        <event-block sid="341540438666412">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="723394719935006" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-20" name="Set layout scale" sid="757723170331854" type="System">
+                                    <param id="0" name="Scale">1.0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="486545262889954" type="Transitioner">
+                                    <param id="0" name="Instance variable">InitialLayoutScale</param>
+                                    <param id="1" name="Value">LayoutScale</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="476952738730068" type="System">
+                                    <param id="0" name="Layer">&quot;FadeLayer&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-26" name="Move to layer" sid="560255649352770" type="Engage_Title">
+                                    <param id="0" name="Layer">&quot;FadeLayer&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="948585123053311" title="M_Transitioner[API]">
+                    <sub-events>
+                        <event-block sid="159934216715481">
+                            <conditions>
+                                <condition id="0" name="On function" sid="389671149039739" type="Function">
+                                    <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionZooming&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="334710209018387" type="Transitioner">
+                                    <param id="0" name="Instance variable">CurrentLayoutScale</param>
+                                    <param id="1" name="Value">self.InitialLayoutScale</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="1" name="LOOP_TIMES" sid="944189342458634" static="0" type="number">160</variable>
+                                <variable constant="1" name="WAIT_TIME" sid="176424649566320" static="0" type="number">0.001</variable>
+                                <event-block sid="170519016545646">
+                                    <conditions>
+                                        <condition id="-12" name="Repeat" sid="567963745692100" type="System">
+                                            <param id="0" name="Count">LOOP_TIMES</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="532902537712702" type="System">
+                                            <param id="0" name="Seconds">loopindex * WAIT_TIME</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="607983833235551" type="Transitioner">
+                                            <param id="0" name="Instance variable">CurrentLayoutScale</param>
+                                            <param id="1" name="Value">0.05</param>
+                                        </action>
+                                        <action id="-20" name="Set layout scale" sid="279758801798852" type="System">
+                                            <param id="0" name="Scale">Transitioner.CurrentLayoutScale</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="857820281493184">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="547242470178748" type="System">
+                                            <param id="0" name="Seconds">LOOP_TIMES * WAIT_TIME</param>
+                                        </action>
+                                        <action id="-4" name="Set layer visible" sid="351179446846362" type="System">
+                                            <param id="0" name="Layer">&quot;FadeLayer&quot;</param>
+                                            <param id="1" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-20" name="Set layout scale" sid="261480059218456" type="System">
+                                            <param id="0" name="Scale">1.0</param>
+                                        </action>
+                                        <action id="-26" name="Move to layer" sid="964851370270499" type="Engage_Title">
+                                            <param id="0" name="Layer">&quot;FadeLayer&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="426966218256298">
+                            <conditions>
+                                <condition id="0" name="On function" sid="858732263635904" type="Function">
+                                    <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionText&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="531876430280708">
+                                    <conditions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="236569347391016" type="Engage_Title">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-26" name="Move to layer" sid="670337859372318" type="Engage_Title">
+                                            <param id="0" name="Layer">&quot;TextTransition&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="502405160628360">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

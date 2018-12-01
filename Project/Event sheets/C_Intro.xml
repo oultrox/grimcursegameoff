@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>C_Intro</name>
+    <events>
+        <include>M_Dialogues</include>
+        <event-block sid="913000339247016">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="361526474196837" type="System" />
+            </conditions>
+            <actions>
+                <action id="-40" name="Set fullscreen scaling" sid="437063474735776" type="System">
+                    <param id="0" name="Fullscreen scaling">1</param>
+                </action>
+                <action id="0" name="Play" sid="618875509874280" type="Audio">
+                    <param id="0" name="Audio file">Omnious Report cut</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume</param>
+                    <param id="1" name="Tag (optional)">&quot;Bajo&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="151457606852304" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="0" name="Call function" sid="330845130474663" type="Function">
+                    <param id="0" name="Name">&quot;M_Dialogue -&gt; ActivateDialogueLore&quot;</param>
+                    <param id="1" name="Parameter {n}">0{###}6</param>
+                </action>
+                <action id="-16" name="Wait" sid="250428039006625" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="572895679757439" type="FadeOscuro">
+                    <param id="0" name="Instance variable">IsFading</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="677205636067800">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="654983311764214" type="FadeOscuro">
+                    <param id="0" name="Instance variable">FadeOut</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="712729440291127" type="System">
+                    <param id="0" name="Interval (seconds)">0.01</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="701434384374478" type="FadeOscuro">
+                    <param id="0" name="Instance variable">FadeOut</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="283104252639594" type="FadeOscuro">
+                    <param id="0" name="Opacity">self.FadeOut</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="887785282877381">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="159127647461242" type="FadeOscuro">
+                    <param id="0" name="Instance variable">FadeIn</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">100</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="327827275201903" type="System">
+                    <param id="0" name="Interval (seconds)">0.01</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="635690769734723" type="FadeOscuro">
+                    <param id="0" name="Instance variable">FadeIn</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="380711207654103" type="FadeOscuro">
+                    <param id="0" name="Opacity">self.FadeIn</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="843266348414606" title="C_Intro[DialogueInteraction]">
+            <sub-events>
+                <event-block sid="206846440182045">
+                    <conditions>
+                        <condition id="1" name="On any click" sid="153100764095645" type="Mouse" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="353751212424758" type="FadeOscuro">
+                            <param id="0" name="Instance variable">IsFading</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="122379947155968" type="FadeOscuro">
+                            <param id="0" name="Instance variable">IsFading</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="989255673094835">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="179580350959028" type="DialogueManager">
+                                    <param id="0" name="Instance variable">IsOnDialog</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="681984704483734">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="271417578148435" type="DialogueManager">
+                                            <param id="0" name="Instance variable">CurrentDialogueNumber</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">DialogueManager.TopMaxDialogNumber</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="968625333804990" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeIn</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="103895737742798" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="406353624343304" type="Function">
+                                            <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogueLore&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="583810863025061" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeOut</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="269693110868430" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="771363329380237" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">IsFading</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="561297363076222">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="759422014597840" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="250608426325840" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnDialog</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="816353550517787" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeIn</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="591966581805866" type="System">
+                                            <param id="0" name="Seconds">3</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="100306839277485" type="Text_Dialogue">
+                                            <param id="0" name="Text">&quot;Gather Recon Group F.&quot;</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="780247785365553" type="Audio">
+                                            <param id="0" name="Audio file">Ambush</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="443315697481727" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeOut</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="742374054538944" type="System">
+                                            <param id="0" name="Seconds">3</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="328870455348887" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeIn</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="895929123515593" type="System">
+                                            <param id="0" name="Seconds">3</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="755208822908057" type="Text_Dialogue">
+                                            <param id="0" name="Text">&quot;Lonely Moon Games&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="413882505618899" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeOut</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="423894137131199" type="System">
+                                            <param id="0" name="Seconds">16</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="213049136528663" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeIn</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="279238470547334" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="711313644981300" type="Text_Dialogue">
+                                            <param id="0" name="Text">&quot;Presents&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="859864895398346" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeOut</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="847481317243179" type="System">
+                                            <param id="0" name="Seconds">6</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="995296726365576" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeIn</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="653839771882210" type="System">
+                                            <param id="0" name="Seconds">3</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="771907874661987" type="GrimCurse_Title">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="824014121949459" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeOut</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="784191470846400" type="System">
+                                            <param id="0" name="Seconds">19</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="784900998150464" type="FadeOscuro">
+                                            <param id="0" name="Instance variable">FadeIn</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="167739378815643" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="-2" name="Go to layout" sid="750065034654645" type="System">
+                                            <param id="0" name="Layout">RainForest</param>
+                                        </action>
+                                        <action id="6" name="Stop" sid="778518940388795" type="Audio">
+                                            <param id="0" name="Tag">&quot;Bajo&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

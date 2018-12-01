@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_EnemyAI_World</name>
+    <events>
+        <variable constant="1" name="IDX_ENEMY_TYPE" sid="244300022307504" static="0" type="number">1</variable>
+        <variable constant="1" name="IDX_ENEMY_HEALTH" sid="214698585449616" static="0" type="number">2</variable>
+        <variable constant="1" name="IDX_ENEMY_DAMAGE" sid="212760333173636" static="0" type="number">3</variable>
+        <event-group description="" sid="183982786435399" title="M_EnemyAI_World">
+            <sub-events>
+                <event-group description="" sid="163604801711131" title="M_EnemyAI_World[Init]">
+                    <sub-events>
+                        <event-block sid="683405623452081">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="393403628156229" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="255026928853387" type="EnemySkin">
+                                    <param id="0" name="Object">Enemy</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="254679978582825" type="EnemySkin">
+                                    <param id="0" name="Pin to">Enemy</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="917622965538989" title="M_EnemyAI_World[API]">
+                    <sub-events>
+                        <event-block sid="780908380071888">
+                            <conditions>
+                                <condition id="0" name="On function" sid="260158257262230" type="Function">
+                                    <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; EnterCombat&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="EnemyType" sid="489098487804323" static="0" type="text"></variable>
+                                <variable constant="0" name="EnemyDifficulty" sid="409615392478699" static="0" type="number">0</variable>
+                                <event-block sid="284098039463395">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="456982811932230" type="System">
+                                            <param id="0" name="Variable">EnemyType</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="309728767619843" type="System">
+                                            <param id="0" name="Variable">EnemyDifficulty</param>
+                                            <param id="1" name="Value">Function.Param(1)</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="186077405290653" type="Function">
+                                            <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; GenerateEnemyPack&quot;</param>
+                                            <param id="1" name="Parameter {n}">EnemyType{###}EnemyDifficulty</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="914550194299713" type="Function">
+                                            <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionZooming&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="504459214997164" type="System">
+                                            <param id="0" name="Seconds">1.3</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="575345663270874">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="186531984540924" type="System">
+                                                    <param id="0" name="First value">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;RainForest&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-2" name="Go to layout" sid="103150404677512" type="System">
+                                                    <param id="0" name="Layout">GalleryShooter-1</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="895082996199523" type="Player">
+                                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="218548943172973">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="939956680552343" type="System" />
+                                                <condition id="-8" name="Compare two values" sid="567357006427060" type="System">
+                                                    <param id="0" name="First value">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;Raison&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-2" name="Go to layout" sid="351731140924929" type="System">
+                                                    <param id="0" name="Layout">GalleryShooter-2</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="781436341776998" type="Player">
+                                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="324724049495113">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="430127666586019" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-2" name="Go to layout" sid="116693855802098" type="System">
+                                                    <param id="0" name="Layout">GalleryShooter-1</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="714952061009286" type="Player">
+                                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Creates the pack of enemies.</comment>
+                        <event-block sid="191206601041634">
+                            <conditions>
+                                <condition id="0" name="On function" sid="858245256725767" type="Function">
+                                    <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; GenerateEnemyPack&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Clear" sid="619593116710203" type="EnemySubtypePack" />
+                                <action id="1" name="Set size" sid="344979986430460" type="EnemySubtypePack">
+                                    <param id="0" name="Width">0</param>
+                                    <param id="1" name="Height">4</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                                <action id="0" name="Clear" sid="943563301519716" type="EnemyAuxType" />
+                                <action id="1" name="Set size" sid="915791550885016" type="EnemyAuxType">
+                                    <param id="0" name="Width">0</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="0" name="EnemyType" sid="936179113849598" static="0" type="text"></variable>
+                                <variable constant="0" name="EnemySubType" sid="893133810406844" static="0" type="text"></variable>
+                                <variable constant="0" name="EnemyAmount" sid="343155468680071" static="0" type="number">0</variable>
+                                <variable constant="0" name="DifMultiplier" sid="854820038928938" static="0" type="number">0</variable>
+                                <variable constant="0" name="EnemyDifficulty" sid="577120171346648" static="0" type="number">0</variable>
+                                <event-block sid="609790286965879">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="372162203147808" type="System">
+                                            <param id="0" name="Variable">EnemyType</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="988190551334092" type="System">
+                                            <param id="0" name="Variable">EnemyDifficulty</param>
+                                            <param id="1" name="Value">Function.Param(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>1 - Sólo arbustos (2-3 enemigos)</comment>
+                                <event-block sid="657041613488975">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="976571522271124" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="152216000610804" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">int(random(2,4))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="801999098908215" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="730870817820004" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>2 - Arbustos y caminantes (2-3 enemigos)</comment>
+                                <event-block sid="971428077391300">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="109150306994712" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="294949378311010" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">int(random(2,4))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="188973734403699" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="753608570574744" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="419505834378908" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Caminante&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>3 - Combinación de todos ( 2-3 enemigos)</comment>
+                                <event-block sid="792181338537871">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="527558852568265" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="443251769039525" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">int(random(2,4))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="781261497487133" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="621303373965562" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="755337920271162" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Caminante&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="465753008616875" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Frenetico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>4- Sólo arbustos (6 enemigos)</comment>
+                                <event-block sid="900656552229020">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="595667543949931" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="556747840143510" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">int(random(5,7))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="519625879242430" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0.2</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="935517167438619" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>5 - Arbustos y caminantes (6 enemigos)</comment>
+                                <event-block sid="414956594648408">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="845132646230662" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="958591846216606" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">int(random(5,7))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="438189362135794" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0.2</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="484151659833114" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="565449541008936" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Caminante&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>6 - Combinación de todos ( 6  enemigos)</comment>
+                                <event-block sid="561198711869710">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="129722266368732" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">6</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="970363769563664" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">int(random(5,7))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="960867740169309" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0.2</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="248192985085211" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="418174671556464" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Caminante&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="385273483428149" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Frenetico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>7 - Combinación de todos (10 enemigos)</comment>
+                                <event-block sid="185141645881708">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="382487707404771" type="System">
+                                            <param id="0" name="First value">EnemyDifficulty</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">7</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="794075306604083" type="System">
+                                            <param id="0" name="Variable">EnemyAmount</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="916117205838996" type="System">
+                                            <param id="0" name="Variable">DifMultiplier</param>
+                                            <param id="1" name="Value">0.4</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="149442845051939" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Estatico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="271055178697445" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Caminante&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="873536751103048" type="EnemyAuxType">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">&quot;Frenetico&quot;</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <variable constant="0" name="RNG" sid="264636748534071" static="0" type="number">0</variable>
+                                <event-block sid="738852158251467">
+                                    <conditions>
+                                        <condition id="-12" name="Repeat" sid="512358191485465" type="System">
+                                            <param id="0" name="Count">EnemyAmount</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="913584449955754" type="System">
+                                            <param id="0" name="Variable">RNG</param>
+                                            <param id="1" name="Value">int(random(0,EnemyAuxType.Width))</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="180901760833994" type="System">
+                                            <param id="0" name="Variable">EnemySubType</param>
+                                            <param id="1" name="Value">EnemyAuxType.At(RNG)</param>
+                                        </action>
+                                        <action id="14" name="Log" sid="178270546827247" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">&quot;RNG : &quot; &amp; RNG</param>
+                                        </action>
+                                        <action id="14" name="Log" sid="558386813996084" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">EnemySubType</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="320460135986931" type="EnemySubtypePack">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">EnemySubType</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="105342206803573" type="EnemySubtypePack">
+                                            <param id="0" name="X">loopindex</param>
+                                            <param id="1" name="Y">IDX_ENEMY_TYPE</param>
+                                            <param id="2" name="Value">EnemyType</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="836013612348729" type="EnemySubtypePack">
+                                            <param id="0" name="X">loopindex</param>
+                                            <param id="1" name="Y">IDX_ENEMY_HEALTH</param>
+                                            <param id="2" name="Value">100 + (100 * DifMultiplier)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="814529922952399" type="EnemySubtypePack">
+                                            <param id="0" name="X">loopindex</param>
+                                            <param id="1" name="Y">IDX_ENEMY_DAMAGE</param>
+                                            <param id="2" name="Value">10 + (10 * DifMultiplier)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="523874808514850">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="834523379185258" title="M_EnemyAI_World[GankCollision]">
+                    <sub-events>
+                        <event-block sid="498108880502966">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="922247731149677" type="Enemy">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="537929565599428" type="Audio">
+                                    <param id="0" name="Tag">&quot;Music_Rainforest&quot;</param>
+                                </action>
+                                <action id="6" name="Stop" sid="635336453983304" type="Audio">
+                                    <param id="0" name="Tag">&quot;Music_Raison&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="442995976391576" type="Audio">
+                                    <param id="0" name="Audio file">Thunder</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="386710366847484" type="Audio">
+                                    <param id="0" name="Audio file">La_Maldicion_Loop</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Music_Combat&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="549238222862691" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">EnemyAmount</param>
+                                    <param id="1" name="Value">Enemy.EnemyAmount</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="394941658709191" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">EnemyType</param>
+                                    <param id="1" name="Value">Enemy.EnemyType</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="776358058709487" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">DifMultiplier</param>
+                                    <param id="1" name="Value">Enemy.EnemyDifficulty</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="116248848773820" type="SettingsOverworld">
+                                    <param id="0" name="Instance variable">LayoutFrom</param>
+                                    <param id="1" name="Value">LayoutName</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="342874665082583" type="Player">
+                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="773143776668506" type="Function">
+                                    <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionText&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-16" name="Wait" sid="318806143956514" type="System">
+                                    <param id="0" name="Seconds">0.6</param>
+                                </action>
+                                <action id="0" name="Call function" sid="180435846748155" type="Function">
+                                    <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; EnterCombat&quot;</param>
+                                    <param id="1" name="Parameter {n}">Enemy.EnemyType{###}Enemy.EnemyDifficulty</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="786333625680103" type="Enemy" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="454284993520962">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="372065033256231" type="Boss1_World">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="673273059023824" type="Audio">
+                                    <param id="0" name="Tag">&quot;Music_Rainforest&quot;</param>
+                                </action>
+                                <action id="6" name="Stop" sid="614538377170508" type="Audio">
+                                    <param id="0" name="Tag">&quot;Music_Raison&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="239905609553188" type="Audio">
+                                    <param id="0" name="Audio file">Thunder</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="358744471945324" type="Audio">
+                                    <param id="0" name="Audio file">La_Maldicion_Loop</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Music_Combat&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="768620208083644" type="SettingsOverworld">
+                                    <param id="0" name="Instance variable">LayoutFrom</param>
+                                    <param id="1" name="Value">LayoutName</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="730290196808620" type="Player">
+                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="658036328272702" type="Function">
+                                    <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionText&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-16" name="Wait" sid="159134810315480" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="182184599117652" type="Function">
+                                    <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionZooming&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-16" name="Wait" sid="714376254503928" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="988228562309329" type="System">
+                                    <param id="0" name="Layout">GalleryBoss-1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="513247257411630" type="Player">
+                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="986012552583899" type="Boss1_World" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="766720268457228">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="761671224447394" type="EnemyZone">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="1" name="TRESHOLD" sid="331526661185406" static="0" type="number">1</variable>
+                                <event-block sid="459303887535838">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="824856953751706" type="Player">
+                                            <param id="0" name="Instance variable">StepTimer</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">TRESHOLD</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="119706389097984" type="EnemyZone">
+                                            <param id="0" name="Instance variable">QueueGank</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="983475254447031" type="EnemyZone">
+                                            <param id="0" name="Instance variable">QueueGank</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="731630579868070">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="811534449445067" type="Player">
+                                            <param id="0" name="Instance variable">StepTimer</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">TRESHOLD</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="563802730782624" type="EnemyZone">
+                                            <param id="0" name="Instance variable">QueueGank</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="826357623246923" type="EnemyZone">
+                                            <param id="0" name="Instance variable">QueueGank</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="344818773206170">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="773276095332499" type="System">
+                                                    <param id="0" name="First value">random(1)</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">0.7</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Stop" sid="730208431603095" type="Audio">
+                                                    <param id="0" name="Tag">&quot;Music_Rainforest&quot;</param>
+                                                </action>
+                                                <action id="6" name="Stop" sid="876692798422133" type="Audio">
+                                                    <param id="0" name="Tag">&quot;Music_Raison&quot;</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="274812649393871" type="Audio">
+                                                    <param id="0" name="Audio file">Thunder</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">10</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="124867698852128" type="Audio">
+                                                    <param id="0" name="Audio file">La_Maldicion_Loop</param>
+                                                    <param id="2" name="Loop">1</param>
+                                                    <param id="3" name="Volume">-5</param>
+                                                    <param id="1" name="Tag (optional)">&quot;Music_Combat&quot;</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="790332563694638" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Transitioner -&gt; InitTransitionText&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="377491299966562" type="Player">
+                                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="103627731269499" type="System">
+                                                    <param id="0" name="Seconds">0.6</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="617922988604880" type="SettingsGalleryShooter">
+                                                    <param id="0" name="Instance variable">EnemyHp</param>
+                                                    <param id="1" name="Value">EnemyZone.EnemyHealth</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="515968439419094" type="SettingsGalleryShooter">
+                                                    <param id="0" name="Instance variable">EnemyType</param>
+                                                    <param id="1" name="Value">EnemyZone.EnemyType</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="918019453269570" type="SettingsOverworld">
+                                                    <param id="0" name="Instance variable">LayoutFrom</param>
+                                                    <param id="1" name="Value">LayoutName</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="165324608685497" type="SettingsGalleryShooter">
+                                                    <param id="0" name="Instance variable">DifMultiplier</param>
+                                                    <param id="1" name="Value">EnemyZone.EnemyDifficulty</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="325888468472543" type="Function">
+                                                    <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; EnterCombat&quot;</param>
+                                                    <param id="1" name="Parameter {n}">EnemyZone.EnemyType{###}EnemyZone.EnemyDifficulty</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

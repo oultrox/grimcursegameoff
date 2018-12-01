@@ -1,0 +1,1084 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_Player_World</name>
+    <events>
+        <event-group description="" sid="659158016406003" title="M_Player_OverWorld">
+            <sub-events>
+                <event-group description="" sid="214930380038134" title="M_Player_World[Init]">
+                    <sub-events>
+                        <event-block sid="700778902881234">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="756328773853155" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="210242212186054" type="PlayerSkin">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">1</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="522731953135115" type="PlayerSkin">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action id="-26" name="Move to layer" sid="801408499937708" type="PlayerSkin">
+                                    <param id="0" name="Layer">&quot;Objetos Z Order&quot;</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="551623503343991" type="los_Solid">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">2</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="780553771634650" type="los_Solid">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="486595713140630" type="Light">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">2</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="171017723999126" type="Light">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action behavior="Level" id="2" name="Set experience" sid="283870589397304" type="Player">
+                                    <param id="0" name="Experience">PlayerStuff.TotalExp</param>
+                                </action>
+                                <action id="0" name="Call function" sid="643368438511858" type="Function">
+                                    <param id="0" name="Name">&quot;M_Player_Overworld -&gt; UpdateBars&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="11" name="Set collisions enabled" sid="897727300768297" type="Player">
+                                    <param id="0" name="Collisions">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="247953246910225" type="System">
+                                    <param id="0" name="Seconds">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="315687360854632">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="593948668666478" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">LayoutTransitionFrom</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Rainforest&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="427921563061541" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">IsTeleporting</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="906106185143710" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">IsTeleporting</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="273135210050032">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="411484560266549" type="ZoneTeleporter">
+                                                    <param id="0" name="Instance variable">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;RainForest&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-4" name="Set position to another object" sid="319642733969967" type="Player">
+                                                    <param id="0" name="Object">ZoneTeleporterPos</param>
+                                                    <param id="1" name="Image point (optional)">0</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="987878292576845" type="PlayerSkin">
+                                                    <param id="0" name="Animation">&quot;PlayerMove&quot; &amp; ZoneTeleporter.Orientation</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="507046651667585">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="795013603218462" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">LayoutTransitionFrom</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Raison&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="155889032211119" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">IsTeleporting</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="883876330629917" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">IsTeleporting</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="308573103392200">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="682898107007963" type="ZoneTeleporter">
+                                                    <param id="0" name="Instance variable">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Raison&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-4" name="Set position to another object" sid="222615999495915" type="Player">
+                                                    <param id="0" name="Object">ZoneTeleporterPos</param>
+                                                    <param id="1" name="Image point (optional)">0</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="170758750693229" type="PlayerSkin">
+                                                    <param id="0" name="Animation">&quot;PlayerMove&quot; &amp; ZoneTeleporter.Orientation</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="933421425277212">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="263913386742772" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="11" name="Set collisions enabled" sid="740040139418789" type="Player">
+                                            <param id="0" name="Collisions">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="413157587475508">
+                                    <conditions>
+                                        <condition id="5" inverted="1" name="Is tag playing" sid="594928292710300" type="Audio">
+                                            <param id="0" name="Tag">&quot;Lluvia&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="335386288281302" type="Audio">
+                                            <param id="0" name="Audio file">lluvia_loop</param>
+                                            <param id="2" name="Loop">1</param>
+                                            <param id="3" name="Volume">-10</param>
+                                            <param id="1" name="Tag (optional)">&quot;Lluvia&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="755066017005725" title="M_Player_World[Pickups]">
+                    <sub-events>
+                        <event-block sid="287741601449204">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="338387320695253" type="Player">
+                                    <param id="0" name="Object">AmmoPickup</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="556417401715325" type="AmmoPickup" />
+                                <action id="0" name="Play" sid="635684849937147" type="Audio">
+                                    <param id="0" name="Audio file">Ammo_Pickup</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume</param>
+                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="0" name="AmmoGiven" sid="275145820488642" static="0" type="number">0</variable>
+                                <event-block sid="969600261652240">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="851058404182632" type="AmmoPickup">
+                                            <param id="0" name="Animation">&quot;SMG&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="188081192119840" type="System">
+                                            <param id="0" name="Variable">AmmoGiven</param>
+                                            <param id="1" name="Value">int(random(30,50))</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="658835649722336" type="WeaponsPlayer">
+                                            <param id="0" name="Instance variable">Ammo_SMG</param>
+                                            <param id="1" name="Value">AmmoGiven</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="193217766946628">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="406654629095181" type="AmmoPickup">
+                                            <param id="0" name="Animation">&quot;SHOTGUN&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="416711588654439" type="System">
+                                            <param id="0" name="Variable">AmmoGiven</param>
+                                            <param id="1" name="Value">int(random(10,15))</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="554944617186434" type="WeaponsPlayer">
+                                            <param id="0" name="Instance variable">Ammo_Shotgun</param>
+                                            <param id="1" name="Value">AmmoGiven</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="520958781987440">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="487073980415710" type="AmmoPickup">
+                                            <param id="0" name="Animation">&quot;RIFLE&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="867032433619071" type="System">
+                                            <param id="0" name="Variable">AmmoGiven</param>
+                                            <param id="1" name="Value">int(random(5,10))</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="385914181083785" type="WeaponsPlayer">
+                                            <param id="0" name="Instance variable">Ammo_Rifle</param>
+                                            <param id="1" name="Value">AmmoGiven</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="944555032098666">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="877164133198642" type="AmmoPickup">
+                                            <param id="0" name="Animation">&quot;EXPLOSIVO&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="229744545985575" type="System">
+                                            <param id="0" name="Variable">AmmoGiven</param>
+                                            <param id="1" name="Value">2</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="715806570156139" type="WeaponsPlayer">
+                                            <param id="0" name="Instance variable">Ammo_Explosivo</param>
+                                            <param id="1" name="Value">AmmoGiven</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="517898528982220">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="455520984617551" type="Player">
+                                            <param id="0" name="Object">Text_AmmoPop</param>
+                                            <param id="1" name="Layer">&quot;PopUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="718568231432454" type="Text_AmmoPop">
+                                            <param id="0" name="Text">AmmoPickup.AnimationName &amp; &quot; + &quot; &amp; AmmoGiven</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="697353565875345">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="692260318894970" type="Player">
+                                    <param id="0" name="Object">KeyPickUp</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="971126836034511" type="KeyPickUp" />
+                                <action id="0" name="Play" sid="451526201174877" type="Audio">
+                                    <param id="0" name="Audio file">Ammo_Pickup</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume</param>
+                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="325154479300086" type="Player">
+                                    <param id="0" name="Object">Text_AmmoPop</param>
+                                    <param id="1" name="Layer">&quot;PopUps&quot;</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="424579410006309" type="Text_AmmoPop">
+                                    <param id="0" name="Text">&quot;Raison Key&quot;</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="692467883617912" type="Keys">
+                                    <param id="0" name="Instance variable">RaisonKey</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="910589239207584">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="374726322570210" type="Player">
+                                    <param id="0" name="Object">HealthPickup</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="863005747336676" type="HealthPickup" />
+                                <action id="-10" name="Set value" sid="746398555256105" type="PlayerStuff">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">PlayerStuff.MaxHealth</param>
+                                </action>
+                                <action id="0" name="Play" sid="668862874389074" type="Audio">
+                                    <param id="0" name="Audio file">Ammo_Pickup</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume</param>
+                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="142099293820723" type="Function">
+                                    <param id="0" name="Name">&quot;M_Player_Overworld -&gt; UpdateBars&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="200101356746652">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="384862773268161" type="Player">
+                                            <param id="0" name="Object">Text_AmmoPop</param>
+                                            <param id="1" name="Layer">&quot;PopUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="993940505723062" type="Text_AmmoPop">
+                                            <param id="0" name="Text">&quot;Health&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="255443265098638">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="407840697654405" type="Text_AmmoPop" />
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="130020388680601" type="Text_AmmoPop">
+                                    <param id="0" name="Y">self.Y - 15</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="196059063718733" type="Text_AmmoPop">
+                                    <param id="0" name="Angle">270</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="274567543934359" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="719055381574261" type="Text_AmmoPop" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="883060131516849" title="M_Player_Overworld[Transitions]">
+                    <sub-events>
+                        <event-block sid="917452612199170">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="256643548110337" type="Player">
+                                    <param id="0" name="Object">ZoneTeleporter</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="484553175871104">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="374508954255622" type="ZoneTeleporter">
+                                            <param id="0" name="Instance variable">LayoutName</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Raison&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="992840290427358" type="Keys">
+                                            <param id="0" name="Instance variable">RaisonKey</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="754700983524581" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">LayoutTransitionFrom</param>
+                                            <param id="1" name="Value">&quot;RainForest&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="155433723007707" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">IsTeleporting</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-25" name="Go to layout (by name)" sid="606842653682488" type="System">
+                                            <param id="0" name="Layout">ZoneTeleporter.LayoutName</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="392311050350842">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="803267541213771" type="ZoneTeleporter">
+                                            <param id="0" name="Instance variable">LayoutName</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;RainForest&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="190056264963856" type="Keys">
+                                            <param id="0" name="Instance variable">RaisonKey</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="594994192756187" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">LayoutTransitionFrom</param>
+                                            <param id="1" name="Value">&quot;Raison&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="348659593905607" type="SettingsOverworld">
+                                            <param id="0" name="Instance variable">IsTeleporting</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-25" name="Go to layout (by name)" sid="717729313837268" type="System">
+                                            <param id="0" name="Layout">ZoneTeleporter.LayoutName</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="328862173116180" title="M_Player_World[Animations]">
+                    <sub-events>
+                        <event-block sid="106757166058106">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="524472570274757" type="Player">
+                                    <param id="0" name="Instance variable">StepTimer</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="738231475095620">
+                                    <conditions>
+                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="191463597608583" type="los_Solid">
+                                            <param id="0" name="Object">Collisions</param>
+                                        </condition>
+                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="255560206397401" type="Player">
+                                            <param id="0" name="Object">Collisions</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="688453857251623">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="987505247321922" type="Player">
+                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="423350281567679" type="PlayerSkin">
+                                                    <param id="0" name="Animation">&quot;PlayerMoveRight&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="984442427016885">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="334270816461394" type="Player">
+                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">270</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="391699133641959" type="PlayerSkin">
+                                                    <param id="0" name="Animation">&quot;PlayerMoveUp&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="304297744889126">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="423951271152575" type="Player">
+                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">90</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="632201347270193" type="PlayerSkin">
+                                                    <param id="0" name="Animation">&quot;PlayerMoveDown&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="860515743095261">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="217246565894610" type="Player">
+                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">180</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="682304896848658" type="PlayerSkin">
+                                                    <param id="0" name="Animation">&quot;PlayerMoveLeft&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="410694052986368">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="195418391776245" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Stop" sid="468363182605910" type="PlayerSkin" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="240691970300956" title="M_Player_World[API]">
+                    <sub-events>
+                        <event-block sid="624052357120181">
+                            <conditions>
+                                <condition id="0" name="On function" sid="174326008044852" type="Function">
+                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-8" name="Set angle" sid="982066625793167" type="los_Solid">
+                                    <param id="0" name="Angle">Player.MoveDir </param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="520563731307623">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="713699135347484" type="los_Solid">
+                                            <param id="0" name="Object">Collisions</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="598918559378058" type="los_Solid">
+                                            <param id="0" name="Instance variable">IsAbleToWalk</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="191342739393369">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="239814145307171" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="787374965494826" type="los_Solid">
+                                            <param id="0" name="Instance variable">IsAbleToWalk</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="246535633695137">
+                            <conditions>
+                                <condition id="0" name="On function" sid="300598879433752" type="Function">
+                                    <param id="0" name="Name">&quot;M_Player_Overworld -&gt; UpdateBars&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>(actualHP * initialBossBarWidth) / initialHP</comment>
+                                <event-block sid="584427838316501">
+                                    <conditions />
+                                    <actions>
+                                        <action id="14" name="Log" sid="649958509074907" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">Player.Level.LevelExpProgress</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="362987819554457" type="HUD_ExpBar">
+                                            <param id="0" name="Width">(Player.Level.LevelExpProgress * HUD_ExpBar.InitWidth)</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="301465677226689" type="HUD_HpBar">
+                                            <param id="0" name="Width">(PlayerStuff.Health * HUD_HpBar.InitWidth) / PlayerStuff.MaxHealth</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="826120012890920" type="HUD_TEXT">
+                                            <param id="0" name="Text">Player.Level.CurrentLevel</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="925992779122246" type="HUD_TEXT2">
+                                            <param id="0" name="Text">PlayerStuff.Health</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="336795846953994">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="520526562779332" type="PlayerStuff">
+                                            <param id="0" name="Instance variable">PerkPoints</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="356508669690433" type="Text_Dialogue">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="175504317403032" type="Text_Dialogue">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="517665123673298">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="307928743920488" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="516636412105768" type="Text_Dialogue">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="718378612744259">
+                            <conditions>
+                                <condition behavior="Level" id="0" name="On level up" sid="708367064105529" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="259389991847228" type="PlayerStuff">
+                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="835889077794874" title="M_Player_OverWorld[Input]">
+                    <sub-events>
+                        <variable constant="1" name="GRID_SIZE" sid="373070559488488" static="0" type="number">16</variable>
+                        <event-group description="" sid="384624536078403" title="M_Player_OverWorld[Input&gt; Keyboard">
+                            <sub-events>
+                                <event-block sid="219573115986460">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="621742274017321" type="System">
+                                            <param id="0" name="First value">timescale</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="673108675850103">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="672917646021580" type="Player">
+                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="920632518917209" type="Player">
+                                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                                </condition>
+                                                <condition id="-9" inverted="1" name="Layer is visible" sid="358875818496048" type="System">
+                                                    <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="605073450801117" type="DialogueManager">
+                                                    <param id="0" name="Instance variable">IsOnDialog</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="838402556714136">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="275008276942182" type="Keyboard">
+                                                            <param id="0" name="Key">16</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="14" name="Log" sid="646424208137513" type="Browser">
+                                                            <param id="0" name="Type">0</param>
+                                                            <param id="1" name="Message">&quot;Shifting&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block any="1" sid="347744914812386">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="759721798224555" type="Keyboard">
+                                                                    <param id="0" name="Key">87</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="791380675945420" type="Keyboard">
+                                                                    <param id="0" name="Key">90</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="292150245324590" type="Keyboard">
+                                                                    <param id="0" name="Key">38</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="477304748670596" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">270</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="813387587912044" type="PlayerSkin">
+                                                                    <param id="0" name="Animation">&quot;PlayerMoveUp&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="875809077185400" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block any="1" sid="130202753210012">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="616725036466421" type="Keyboard">
+                                                                    <param id="0" name="Key">65</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="501482619242435" type="Keyboard">
+                                                                    <param id="0" name="Key">81</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="178992568184865" type="Keyboard">
+                                                                    <param id="0" name="Key">37</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="669143268430131" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">180</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="963097566127299" type="PlayerSkin">
+                                                                    <param id="0" name="Animation">&quot;PlayerMoveLeft&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="958276699108011" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block any="1" sid="993365264223829">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="215391990279646" type="Keyboard">
+                                                                    <param id="0" name="Key">83</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="260096135776434" type="Keyboard">
+                                                                    <param id="0" name="Key">40</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="385395189201042" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">90</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="728028067879527" type="PlayerSkin">
+                                                                    <param id="0" name="Animation">&quot;PlayerMoveDown&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="292372823880350" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block any="1" sid="450008404164986">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="378356385802217" type="Keyboard">
+                                                                    <param id="0" name="Key">68</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="849203117232173" type="Keyboard">
+                                                                    <param id="0" name="Key">39</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="635699207918530" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">0</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="699626485993134" type="PlayerSkin">
+                                                                    <param id="0" name="Animation">&quot;PlayerMoveRight&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="708134543883596" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="223187746779968">
+                                                            <conditions />
+                                                            <actions>
+                                                                <action id="2" name="Stop" sid="698397558347123" type="PlayerSkin" />
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="300375098281451">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="570586623885474" type="System" />
+                                                        <condition id="2" inverted="1" name="Key is down" sid="660049901448537" type="Keyboard">
+                                                            <param id="0" name="Key">16</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block any="1" sid="592064052195096">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="589400519154811" type="Keyboard">
+                                                                    <param id="0" name="Key">87</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="601776398053357" type="Keyboard">
+                                                                    <param id="0" name="Key">90</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="685148904422981" type="Keyboard">
+                                                                    <param id="0" name="Key">38</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="518790611149750" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">270</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="420887949906190" type="Player">
+                                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                                    <param id="1" name="Value">GRID_SIZE</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="910570485529478" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block any="1" sid="210709593411717">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="947760371843661" type="Keyboard">
+                                                                    <param id="0" name="Key">65</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="508269145842902" type="Keyboard">
+                                                                    <param id="0" name="Key">81</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="617442029627170" type="Keyboard">
+                                                                    <param id="0" name="Key">37</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="243769931175719" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">180</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="575612768713721" type="Player">
+                                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                                    <param id="1" name="Value">GRID_SIZE</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="745860477083753" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block any="1" sid="371013281992700">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="198130972393072" type="Keyboard">
+                                                                    <param id="0" name="Key">83</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="717913711384810" type="Keyboard">
+                                                                    <param id="0" name="Key">40</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="629512378550692" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">90</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="552480024924112" type="Player">
+                                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                                    <param id="1" name="Value">GRID_SIZE</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="355300760891023" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block any="1" sid="630769116175218">
+                                                            <conditions>
+                                                                <condition id="0" name="On key pressed" sid="251685044696714" type="Keyboard">
+                                                                    <param id="0" name="Key">68</param>
+                                                                </condition>
+                                                                <condition id="0" name="On key pressed" sid="514427978148160" type="Keyboard">
+                                                                    <param id="0" name="Key">39</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="190415566664364" type="Player">
+                                                                    <param id="0" name="Instance variable">MoveDir</param>
+                                                                    <param id="1" name="Value">0</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="796803331854893" type="Player">
+                                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                                    <param id="1" name="Value">GRID_SIZE</param>
+                                                                </action>
+                                                                <action id="0" name="Call function" sid="500266464601772" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="881754345028108">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="824118381766056" type="Player">
+                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="490101537494158" type="Player">
+                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                    <param id="1" name="Value">Player.MoveSpeed</param>
+                                                </action>
+                                                <action id="-8" name="Set angle" sid="225444653316828" type="los_Solid">
+                                                    <param id="0" name="Angle">Player.MoveDir </param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="797887724383199">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="191980185907404" type="los_Solid">
+                                                            <param id="0" name="Instance variable">IsAbleToWalk</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-23" name="Move at angle" sid="625088002237460" type="Player">
+                                                            <param id="0" name="Angle">Player.MoveDir</param>
+                                                            <param id="1" name="Distance">Player.MoveSpeed</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="153612375921580">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="567820749953595" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="2" name="Stop" sid="246039824494940" type="PlayerSkin" />
+                                                        <action id="-10" name="Set value" sid="552287327746657" type="Player">
+                                                            <param id="0" name="Instance variable">StepTimer</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="955773050620669">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="977859046848843" type="Player">
+                                                    <param id="0" name="Instance variable">StepTimer</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="463506858713003" type="Player">
+                                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                                </condition>
+                                                <condition id="2" inverted="1" name="Key is down" sid="834267668414597" type="Keyboard">
+                                                    <param id="0" name="Key">16</param>
+                                                </condition>
+                                                <condition id="-9" inverted="1" name="Layer is visible" sid="401505539282260" type="System">
+                                                    <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="849747614510033" type="DialogueManager">
+                                                    <param id="0" name="Instance variable">IsOnDialog</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block any="1" sid="750992789848111">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="882370408702991" type="Keyboard">
+                                                            <param id="0" name="Key">87</param>
+                                                        </condition>
+                                                        <condition id="2" name="Key is down" sid="135520742136657" type="Keyboard">
+                                                            <param id="0" name="Key">90</param>
+                                                        </condition>
+                                                        <condition id="2" name="Key is down" sid="553266730434001" type="Keyboard">
+                                                            <param id="0" name="Key">38</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="567979811217343" type="Player">
+                                                            <param id="0" name="Instance variable">MoveDir</param>
+                                                            <param id="1" name="Value">270</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="493439170500809" type="Player">
+                                                            <param id="0" name="Instance variable">StepTimer</param>
+                                                            <param id="1" name="Value">GRID_SIZE</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="271988572757451" type="Function">
+                                                            <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block any="1" sid="315193022770723">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="135930958542567" type="Keyboard">
+                                                            <param id="0" name="Key">65</param>
+                                                        </condition>
+                                                        <condition id="2" name="Key is down" sid="169006986867056" type="Keyboard">
+                                                            <param id="0" name="Key">81</param>
+                                                        </condition>
+                                                        <condition id="2" name="Key is down" sid="566886404463723" type="Keyboard">
+                                                            <param id="0" name="Key">37</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="463458663165985" type="Player">
+                                                            <param id="0" name="Instance variable">MoveDir</param>
+                                                            <param id="1" name="Value">180</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="593977140286289" type="Player">
+                                                            <param id="0" name="Instance variable">StepTimer</param>
+                                                            <param id="1" name="Value">GRID_SIZE</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="438142411665141" type="Function">
+                                                            <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block any="1" sid="895931107855848">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="262109369128166" type="Keyboard">
+                                                            <param id="0" name="Key">83</param>
+                                                        </condition>
+                                                        <condition id="2" name="Key is down" sid="903348026389735" type="Keyboard">
+                                                            <param id="0" name="Key">40</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="845254276068740" type="Player">
+                                                            <param id="0" name="Instance variable">MoveDir</param>
+                                                            <param id="1" name="Value">90</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="628111833150206" type="Player">
+                                                            <param id="0" name="Instance variable">StepTimer</param>
+                                                            <param id="1" name="Value">GRID_SIZE</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="741693656364560" type="Function">
+                                                            <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block any="1" sid="691825573056838">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="225972209551468" type="Keyboard">
+                                                            <param id="0" name="Key">68</param>
+                                                        </condition>
+                                                        <condition id="2" name="Key is down" sid="376358150076123" type="Keyboard">
+                                                            <param id="0" name="Key">39</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="938581025663310" type="Player">
+                                                            <param id="0" name="Instance variable">MoveDir</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="626945866847861" type="Player">
+                                                            <param id="0" name="Instance variable">StepTimer</param>
+                                                            <param id="1" name="Value">GRID_SIZE</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="282502268918746" type="Function">
+                                                            <param id="0" name="Name">&quot;M_Player_World -&gt; CheckWalkable&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="540433033579211">
+                                                    <conditions />
+                                                    <actions />
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

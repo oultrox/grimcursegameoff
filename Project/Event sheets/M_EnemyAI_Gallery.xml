@@ -1,0 +1,1616 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_EnemyAI_Gallery</name>
+    <events>
+        <event-group description="" sid="708770988194089" title="M_EnemyAI_Gallery">
+            <sub-events>
+                <event-group description="" sid="387315693346395" title="M_EnemyAI_Gallery[Init]">
+                    <sub-events>
+                        <event-block sid="319493395303396">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="905757325544230" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="838208650144839" type="EnemyBullet" />
+                                <action id="-9" name="Destroy" sid="980038834574072" type="EnemyGallery" />
+                                <action id="-10" name="Set value" sid="135935567350901" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">EnemyAmount</param>
+                                    <param id="1" name="Value">EnemySubtypePack.Width</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="440675707554438" type="System">
+                                    <param id="0" name="Seconds">0.01</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="0" name="LoopAmount" sid="511820089869061" static="0" type="number">0</variable>
+                                <event-block sid="973466287317302">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="661785778894403" type="System">
+                                            <param id="0" name="Variable">LoopAmount</param>
+                                            <param id="1" name="Value">EnemySubtypePack.Width - 1</param>
+                                        </action>
+                                        <action id="14" name="Log" sid="332981318369349" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">LoopAmount</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="109903463569155">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="404993465107505" type="System">
+                                            <param id="0" name="First value">LoopAmount</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                        <condition id="-10" name="For" sid="474248806532650" type="System">
+                                            <param id="0" name="Name">&quot;SCREW THIS&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">LoopAmount</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <variable constant="0" name="auxPosition" sid="578772454681615" static="0" type="number">0</variable>
+                                        <comment>Back guys</comment>
+                                        <event-block sid="864125218157458">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="688623905954093" type="System">
+                                                    <param id="0" name="First value">loopindex</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Second value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <variable constant="1" name="Y_POSITION" sid="260132898376395" static="0" type="number">117</variable>
+                                                <event-block sid="781944064503042">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="334271504267720" type="System">
+                                                            <param id="0" name="First value">EnemySubtypePack.At(loopindex)</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">&quot;Estatico&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="315423785580536" type="System">
+                                                            <param id="0" name="Variable">auxPosition</param>
+                                                            <param id="1" name="Value">int(random(0,EnemyAuxPositionBack.Width-1))</param>
+                                                        </action>
+                                                        <action id="-3" name="Create object" sid="186250681731921" type="System">
+                                                            <param id="0" name="Object to create">EnemyGallery</param>
+                                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                            <param id="2" name="X">EnemyAuxPositionBack.At(auxPosition)</param>
+                                                            <param id="3" name="Y">SettingsGalleryShooter.BackY</param>
+                                                        </action>
+                                                        <action id="9" name="Delete" sid="828146400723986" type="EnemyAuxPositionBack">
+                                                            <param id="0" name="Index">auxPosition</param>
+                                                            <param id="1" name="Axis">0</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="812429174886801" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="282054253789966" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemyType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,1)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="870476883372516" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Health</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,2)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="305371969789531" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">DamageAmount</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,3)</param>
+                                                        </action>
+                                                        <action id="-4" name="Set position to another object" sid="514735183696282" type="EnemyGallerySprite">
+                                                            <param id="0" name="Object">EnemyGallery</param>
+                                                            <param id="1" name="Image point (optional)">0</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="260643504550875" type="EnemyGallerySprite">
+                                                            <param id="0" name="Pin to">EnemyGallery</param>
+                                                            <param id="1" name="Mode">0</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="730797596182609" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Cover&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="6" name="Set speed" sid="563749601844864" type="EnemyGallerySprite">
+                                                            <param id="0" name="Speed">int(random(7,17))</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="815248071263572" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Speed</param>
+                                                            <param id="1" name="Value">random(self.Speed - 20, self.Speed + 20)</param>
+                                                        </action>
+                                                        <action id="14" name="Log" sid="279002011630211" type="Browser">
+                                                            <param id="0" name="Type">0</param>
+                                                            <param id="1" name="Message">&quot;USed random position: &quot; &amp; auxPosition</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="878844239351227" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">IsEnabled</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="11" name="Set collisions enabled" sid="632720521215561" type="EnemyGallerySprite">
+                                                            <param id="0" name="Collisions">0</param>
+                                                        </action>
+                                                        <action id="9" name="Set scale" sid="676405456963592" type="EnemyGallerySprite">
+                                                            <param id="0" name="Scale">0.8</param>
+                                                        </action>
+                                                        <action id="-25" name="Move to bottom" sid="434111575088520" type="EnemyGallerySprite" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="935950721306857">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="783525783884022" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Create object" sid="289894549658533" type="System">
+                                                            <param id="0" name="Object to create">EnemyGallery</param>
+                                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                            <param id="2" name="X">random(100,300)</param>
+                                                            <param id="3" name="Y">SettingsGalleryShooter.BackY</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="674272616630685" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="333149315011240" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemyType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,1)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="456518890580368" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Health</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,2)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="927357799940130" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">DamageAmount</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,3)</param>
+                                                        </action>
+                                                        <action id="-4" name="Set position to another object" sid="480545436205622" type="EnemyGallerySprite">
+                                                            <param id="0" name="Object">EnemyGallery</param>
+                                                            <param id="1" name="Image point (optional)">0</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="893336539446591" type="EnemyGallerySprite">
+                                                            <param id="0" name="Pin to">EnemyGallery</param>
+                                                            <param id="1" name="Mode">0</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="533753509465557" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Speed</param>
+                                                            <param id="1" name="Value">random(self.Speed - 20, self.Speed + 20)</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="410618705204440" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">IsEnabled</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="9" name="Set scale" sid="348082744594926" type="EnemyGallerySprite">
+                                                            <param id="0" name="Scale">0.8</param>
+                                                        </action>
+                                                        <action id="-25" name="Move to bottom" sid="644926069883676" type="EnemyGallerySprite" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Front guys</comment>
+                                        <event-block sid="953403934792173">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="164732759900484" type="System" />
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="356588410099862">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="438756257104764" type="System">
+                                                            <param id="0" name="First value">EnemySubtypePack.At(loopindex)</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">&quot;Estatico&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="739169866367452" type="System">
+                                                            <param id="0" name="Variable">auxPosition</param>
+                                                            <param id="1" name="Value">int(random(0,EnemyAuxPositionFront.Width-1))</param>
+                                                        </action>
+                                                        <action id="-3" name="Create object" sid="367490880755930" type="System">
+                                                            <param id="0" name="Object to create">EnemyGallery</param>
+                                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                            <param id="2" name="X">EnemyAuxPositionFront.At(auxPosition)</param>
+                                                            <param id="3" name="Y">SettingsGalleryShooter.FrontY</param>
+                                                        </action>
+                                                        <action id="9" name="Delete" sid="163420239757821" type="EnemyAuxPositionFront">
+                                                            <param id="0" name="Index">auxPosition</param>
+                                                            <param id="1" name="Axis">0</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="626180805874176" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="672832768877619" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemyType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,1)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="417303957768499" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Health</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,2)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="146047244745101" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">DamageAmount</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,3)</param>
+                                                        </action>
+                                                        <action id="-4" name="Set position to another object" sid="319384877471596" type="EnemyGallerySprite">
+                                                            <param id="0" name="Object">EnemyGallery</param>
+                                                            <param id="1" name="Image point (optional)">0</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="885313893362804" type="EnemyGallerySprite">
+                                                            <param id="0" name="Pin to">EnemyGallery</param>
+                                                            <param id="1" name="Mode">0</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="629636454627670" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Cover&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="6" name="Set speed" sid="370846244413120" type="EnemyGallerySprite">
+                                                            <param id="0" name="Speed">int(random(7,17))</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="219280187867314" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Speed</param>
+                                                            <param id="1" name="Value">random(self.Speed - 20, self.Speed + 20)</param>
+                                                        </action>
+                                                        <action id="14" name="Log" sid="977906758959509" type="Browser">
+                                                            <param id="0" name="Type">0</param>
+                                                            <param id="1" name="Message">&quot;USed random position: &quot; &amp; auxPosition</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="587658529016937" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">IsEnabled</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="11" name="Set collisions enabled" sid="993956949544055" type="EnemyGallerySprite">
+                                                            <param id="0" name="Collisions">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="556787579375026">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="741323016925561" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Create object" sid="629631483844235" type="System">
+                                                            <param id="0" name="Object to create">EnemyGallery</param>
+                                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                            <param id="2" name="X">random(100,300)</param>
+                                                            <param id="3" name="Y">SettingsGalleryShooter.FrontY</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="969293699717261" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="881189811427493" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemyType</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,1)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="916849843326923" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Health</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,2)</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="837554050175858" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">DamageAmount</param>
+                                                            <param id="1" name="Value">EnemySubtypePack.At(loopindex,3)</param>
+                                                        </action>
+                                                        <action id="-4" name="Set position to another object" sid="307238287996343" type="EnemyGallerySprite">
+                                                            <param id="0" name="Object">EnemyGallery</param>
+                                                            <param id="1" name="Image point (optional)">0</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="836406453717346" type="EnemyGallerySprite">
+                                                            <param id="0" name="Pin to">EnemyGallery</param>
+                                                            <param id="1" name="Mode">0</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="118695675088557" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">Speed</param>
+                                                            <param id="1" name="Value">random(self.Speed - 20, self.Speed + 20)</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="519513368313438" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">IsEnabled</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="774349052200332">
+                                            <conditions />
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="318444947799580" title="M_EnemyAI_Gallery[AI]">
+                    <sub-events>
+                        <event-group description="" sid="108147655503736" title="M_EnemyAI_Gallery[AI] &gt; Movimiento">
+                            <sub-events>
+                                <event-block sid="370165101263621">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="300975752770772" type="PlayerStuff">
+                                            <param id="0" name="Instance variable">Health</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <comment>Caminante</comment>
+                                        <event-block sid="743420551070255">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="416632588680169" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Caminante&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="969977950019183" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <comment>Camina distancias random en X.</comment>
+                                                <variable constant="0" name="WanderRange" sid="671390608981657" static="0" type="number">50</variable>
+                                                <event-block sid="146875697574840">
+                                                    <conditions>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="824302259617482" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">IsAttacking</param>
+                                                        </condition>
+                                                        <condition behavior="MoveTo" id="3" inverted="1" name="Is moving" sid="838817726854998" type="EnemyGallery" />
+                                                        <condition id="-6" name="Every X seconds" sid="537562021289751" type="System">
+                                                            <param id="0" name="Interval (seconds)">2.0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="918951667751409" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">NextPosX</param>
+                                                            <param id="1" name="Value">random(EnemyGallery.X  - WanderRange , EnemyGallery.X + WanderRange)</param>
+                                                        </action>
+                                                        <action id="-11" name="Add to" sid="347072545294530" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">WalkAmount</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <comment>Se sale pa la derecha, Es decir, mover a la izquierda.</comment>
+                                                        <event-block sid="739969667062661">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="984761912561409" type="System">
+                                                                    <param id="0" name="First value">EnemyGallery.NextPosX</param>
+                                                                    <param id="1" name="Comparison">4</param>
+                                                                    <param id="2" name="Second value">270</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="904990864209909" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">NextPosX</param>
+                                                                    <param id="1" name="Value">random(EnemyGallery.X  - (WanderRange*1.5)  , EnemyGallery.X  - WanderRange)</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <comment>Se sale pa la izquierda, Es decir, necesitamos moverlo a la derecha.</comment>
+                                                        <event-block sid="144689540634562">
+                                                            <conditions>
+                                                                <condition id="-22" name="Else" sid="159013855177786" type="System" />
+                                                                <condition id="-8" name="Compare two values" sid="709576599625371" type="System">
+                                                                    <param id="0" name="First value">EnemyGallery.NextPosX</param>
+                                                                    <param id="1" name="Comparison">2</param>
+                                                                    <param id="2" name="Second value">100</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="574457245216369" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">NextPosX</param>
+                                                                    <param id="1" name="Value">random(EnemyGallery.X  + WanderRange , EnemyGallery.X  + (WanderRange*1.5))</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="600534856846451">
+                                                            <conditions />
+                                                            <actions>
+                                                                <action behavior="MoveTo" id="4" name="Move to XY" sid="410520694281963" type="EnemyGallery">
+                                                                    <param id="0" name="X">Self.NextPosX</param>
+                                                                    <param id="1" name="Y">Self.Y</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="530374554562244" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Running&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="825181191990972" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">State</param>
+                                                                    <param id="1" name="Value">&quot;preparing shooting&quot;</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Movement patterns del rest de los enemigos</comment>
+                                        <event-block sid="495937032360414">
+                                            <conditions>
+                                                <condition id="-11" name="For Each" sid="544587566083702" type="System">
+                                                    <param id="0" name="Object">EnemyGallery</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="788458523531887" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <comment>Parado pero se cubre</comment>
+                                                <event-block sid="257321344574904">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="263261276974356" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;Estatico&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="517016208206940">
+                                                            <conditions>
+                                                                <condition id="2" name="Is playing" sid="841001808048393" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Cover&quot;</param>
+                                                                </condition>
+                                                                <condition id="3" name="Compare frame" sid="251617528920264" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Comparison">5</param>
+                                                                    <param id="1" name="Number">EnemyGallerySprite.AnimationFrameCount-1</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="737869308190053" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">State</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;preparing shooting&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="362451346980929" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">State</param>
+                                                                    <param id="1" name="Value">&quot;charging shooting&quot;</param>
+                                                                </action>
+                                                                <action id="-16" name="Wait" sid="342259816350661" type="System">
+                                                                    <param id="0" name="Seconds">0</param>
+                                                                </action>
+                                                                <action id="11" name="Set collisions enabled" sid="534682191973867" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Collisions">1</param>
+                                                                </action>
+                                                                <action id="-16" name="Wait" sid="164179238571296" type="System">
+                                                                    <param id="0" name="Seconds">0.7</param>
+                                                                </action>
+                                                            </actions>
+                                                            <sub-events>
+                                                                <event-block sid="729414700991016">
+                                                                    <conditions>
+                                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="461256195013425" type="EnemyGallery">
+                                                                            <param id="0" name="Instance variable">IsDead</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="4" name="Set animation" sid="124087823189041" type="EnemyGallerySprite">
+                                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Shoot&quot;</param>
+                                                                            <param id="1" name="From">1</param>
+                                                                        </action>
+                                                                        <action id="0" name="Play" sid="159357838075075" type="Audio">
+                                                                            <param id="0" name="Audio file">3shot</param>
+                                                                            <param id="2" name="Loop">0</param>
+                                                                            <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume - 20</param>
+                                                                            <param id="1" name="Tag (optional)">&quot;Enemy_SFX&quot; &amp; EnemyGallery.UID</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <comment>Parado</comment>
+                                                <event-block sid="619613036864461">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="240510426521627" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;Explosivo&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                </event-block>
+                                                <comment>Va de un lado al otro.</comment>
+                                                <event-block sid="937088928819683">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="962562490271708" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;Frenetico&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="629799425718031">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="524852930691251" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">State</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;preparing shooting&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action disabled="1" id="4" name="Set animation" sid="950988721703811" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Animation">&quot;NormieRunning&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="651431840490906" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Running&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action behavior="Timer" id="0" name="Start timer" sid="951995826231105" type="EnemyGallery">
+                                                                    <param id="0" name="Duration">random(1.3,1.6)</param>
+                                                                    <param id="1" name="Type">0</param>
+                                                                    <param id="2" name="Tag">&quot;Shoot&quot;</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="968121664611857" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">State</param>
+                                                                    <param id="1" name="Value">&quot;charging shooting&quot;</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="125439053631172">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="759487943189880" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">Direction</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">0</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="487790122723241" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">Direction</param>
+                                                                    <param id="1" name="Value">choose(1,2)</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <comment>Izquierda</comment>
+                                                        <event-block sid="678479649590863">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="108161210805520" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">Direction</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">1</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-23" name="Move at angle" sid="440873815677583" type="EnemyGallery">
+                                                                    <param id="0" name="Angle">180</param>
+                                                                    <param id="1" name="Distance">EnemyGallery.Speed * dt</param>
+                                                                </action>
+                                                                <action id="7" name="Set mirrored" sid="187090003550952" type="EnemyGallerySprite">
+                                                                    <param id="0" name="State">0</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <comment>Derecha</comment>
+                                                        <event-block sid="553905273294772">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="526452740715501" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">Direction</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">2</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-23" name="Move at angle" sid="887826349177721" type="EnemyGallery">
+                                                                    <param id="0" name="Angle">0</param>
+                                                                    <param id="1" name="Distance">EnemyGallery.Speed * dt</param>
+                                                                </action>
+                                                                <action id="7" name="Set mirrored" sid="801304320667473" type="EnemyGallerySprite">
+                                                                    <param id="0" name="State">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <comment>Limites</comment>
+                                                        <event-block sid="938102813621426">
+                                                            <conditions>
+                                                                <condition id="-1" name="Compare X" sid="628799905690866" type="EnemyGallery">
+                                                                    <param id="0" name="Comparison">4</param>
+                                                                    <param id="1" name="X co-ordinate">380</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="215934702763080" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">Direction</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <comment>Limites</comment>
+                                                        <event-block sid="784005456965496">
+                                                            <conditions>
+                                                                <condition id="-1" name="Compare X" sid="110893679965831" type="EnemyGallery">
+                                                                    <param id="0" name="Comparison">2</param>
+                                                                    <param id="1" name="X co-ordinate">-40</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="325051442901787" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">Direction</param>
+                                                                    <param id="1" name="Value">2</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="197626809254910">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="833986048532059" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">EnemySubType</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;Caminante&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="994991969374321">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="511289177997628" type="System">
+                                                                    <param id="0" name="First value">EnemyGallery.NextPosX</param>
+                                                                    <param id="1" name="Comparison">4</param>
+                                                                    <param id="2" name="Second value">EnemyGallery.X</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="7" name="Set mirrored" sid="806509598315470" type="EnemyGallerySprite">
+                                                                    <param id="0" name="State">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="844565958770565">
+                                                            <conditions>
+                                                                <condition id="-22" name="Else" sid="140774475003227" type="System" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="7" name="Set mirrored" sid="848402749492610" type="EnemyGallerySprite">
+                                                                    <param id="0" name="State">0</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Triggers</comment>
+                                        <event-block sid="496412433806167">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="147277046293928" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Estatico&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="235400174441326" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="784844559691450">
+                                                    <conditions>
+                                                        <condition id="4" name="On finished" sid="232174157208466" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Shoot&quot;</param>
+                                                        </condition>
+                                                        <condition id="-7" name="Compare instance variable" sid="901218794096677" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">State</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;charging shooting&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="784403419609505" type="Function">
+                                                            <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; Shoot&quot;</param>
+                                                            <param id="1" name="Parameter {n}">EnemyGallery.UID</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="336814962343589" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Cover&quot;</param>
+                                                            <param id="1" name="From">0</param>
+                                                        </action>
+                                                        <action id="5" name="Set frame" sid="194541091585146" type="EnemyGallerySprite">
+                                                            <param id="0" name="Frame number">4</param>
+                                                        </action>
+                                                        <action id="-16" name="Wait" sid="385012159162386" type="System">
+                                                            <param id="0" name="Seconds">1</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="567989019879087" type="Audio">
+                                                            <param id="0" name="Audio file">Bush_in</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume - 20</param>
+                                                            <param id="1" name="Tag (optional)">&quot;Enemy_SFX&quot; &amp; EnemyGallery.UID</param>
+                                                        </action>
+                                                        <action id="11" name="Set collisions enabled" sid="150393816926742" type="EnemyGallerySprite">
+                                                            <param id="0" name="Collisions">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="250878344367762">
+                                                    <conditions>
+                                                        <condition id="4" name="On finished" sid="375323257529759" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Cover&quot;</param>
+                                                        </condition>
+                                                        <condition id="-7" name="Compare instance variable" sid="926369642662192" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">State</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;charging shooting&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="11" name="Set collisions enabled" sid="550630922238397" type="EnemyGallerySprite">
+                                                            <param id="0" name="Collisions">0</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="878693769099478" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">State</param>
+                                                            <param id="1" name="Value">&quot;preparing shooting&quot;</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="386187137015089" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Cover&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="555756267339172">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="751281092503340" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Frenetico&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="919862535559078" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="923065641583925">
+                                                    <conditions>
+                                                        <condition id="4" name="On finished" sid="787713059279840" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Shoot&quot;</param>
+                                                        </condition>
+                                                        <condition id="-7" name="Compare instance variable" sid="877032609583291" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">State</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;charging shooting&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="702120308451683" type="Function">
+                                                            <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; Shoot&quot;</param>
+                                                            <param id="1" name="Parameter {n}">EnemyGallery.UID</param>
+                                                        </action>
+                                                        <action disabled="1" id="4" name="Set animation" sid="442855858231565" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">&quot;NormieRunning&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="904436754325472" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Running&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="136274387837057" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">State</param>
+                                                            <param id="1" name="Value">&quot;preparing shooting&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="467949674936733">
+                                                    <conditions>
+                                                        <condition behavior="Timer" id="0" name="On timer" sid="440392715111458" type="EnemyGallery">
+                                                            <param id="0" name="Tag">&quot;Shoot&quot;</param>
+                                                        </condition>
+                                                        <condition id="-11" name="For Each" sid="563612754594872" type="System">
+                                                            <param id="0" name="Object">EnemyGallery</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action disabled="1" id="4" name="Set animation" sid="250526856824175" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">&quot;NormieRunningShoot&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="335324684013744" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Shoot&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="321359413183240" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">State</param>
+                                                            <param id="1" name="Value">&quot;charging shooting&quot;</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="306957906449097" type="Audio">
+                                                            <param id="0" name="Audio file">Smg_shooting_2sec</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume - 25</param>
+                                                            <param id="1" name="Tag (optional)">&quot;Enemy_SFX&quot; &amp; EnemyGallery.UID</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="803838816628695">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="574176013891592" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Caminante&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="766473918741455" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="127822266470333">
+                                                    <conditions>
+                                                        <condition behavior="MoveTo" id="0" name="On hit target position" sid="553452806388357" type="EnemyGallery" />
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="527998983010876">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="634874856803813" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">WalkAmount</param>
+                                                                    <param id="1" name="Comparison">4</param>
+                                                                    <param id="2" name="Value">3</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-13" name="Set boolean" sid="215018566924908" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">IsAttacking</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="223734049714895" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">WalkAmount</param>
+                                                                    <param id="1" name="Value">0</param>
+                                                                </action>
+                                                                <action id="4" name="Set animation" sid="211752637368972" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Shoot&quot;</param>
+                                                                    <param id="1" name="From">1</param>
+                                                                </action>
+                                                                <action id="-13" name="Set boolean" sid="897785925403843" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Instance variable">IsFrameTrigger</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="496317340381684">
+                                                            <conditions>
+                                                                <condition id="-22" name="Else" sid="937460834454358" type="System" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-11" name="Add to" sid="849915258204181" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">WalkAmount</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                            </actions>
+                                                            <sub-events>
+                                                                <comment>Camina distancias random en X.</comment>
+                                                                <variable constant="0" name="WanderRange" sid="693031991805843" static="0" type="number">60</variable>
+                                                                <event-block sid="223408552234448">
+                                                                    <conditions>
+                                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="281343967118842" type="EnemyGallery">
+                                                                            <param id="0" name="Instance variable">IsAttacking</param>
+                                                                        </condition>
+                                                                        <condition behavior="MoveTo" id="3" inverted="1" name="Is moving" sid="735556263028005" type="EnemyGallery" />
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-10" name="Set value" sid="153581966009654" type="EnemyGallery">
+                                                                            <param id="0" name="Instance variable">NextPosX</param>
+                                                                            <param id="1" name="Value">random(EnemyGallery.X  - WanderRange , EnemyGallery.X + WanderRange)</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                    <sub-events>
+                                                                        <comment>Se sale pa la derecha, Es decir, mover a la izquierda.</comment>
+                                                                        <event-block sid="142829812185830">
+                                                                            <conditions>
+                                                                                <condition id="-8" name="Compare two values" sid="720089652318302" type="System">
+                                                                                    <param id="0" name="First value">EnemyGallery.NextPosX</param>
+                                                                                    <param id="1" name="Comparison">4</param>
+                                                                                    <param id="2" name="Second value">270</param>
+                                                                                </condition>
+                                                                            </conditions>
+                                                                            <actions>
+                                                                                <action id="-10" name="Set value" sid="288781070484473" type="EnemyGallery">
+                                                                                    <param id="0" name="Instance variable">NextPosX</param>
+                                                                                    <param id="1" name="Value">random(EnemyGallery.X  - (WanderRange*1.5)  , EnemyGallery.X  - WanderRange)</param>
+                                                                                </action>
+                                                                            </actions>
+                                                                        </event-block>
+                                                                        <comment>Se sale pa la izquierda, Es decir, necesitamos moverlo a la derecha.</comment>
+                                                                        <event-block sid="191096248210314">
+                                                                            <conditions>
+                                                                                <condition id="-22" name="Else" sid="858037647079527" type="System" />
+                                                                                <condition id="-8" name="Compare two values" sid="389366738474499" type="System">
+                                                                                    <param id="0" name="First value">EnemyGallery.NextPosX</param>
+                                                                                    <param id="1" name="Comparison">2</param>
+                                                                                    <param id="2" name="Second value">100</param>
+                                                                                </condition>
+                                                                            </conditions>
+                                                                            <actions>
+                                                                                <action id="-10" name="Set value" sid="105227568046227" type="EnemyGallery">
+                                                                                    <param id="0" name="Instance variable">NextPosX</param>
+                                                                                    <param id="1" name="Value">random(EnemyGallery.X  + WanderRange , EnemyGallery.X  + (WanderRange*1.5))</param>
+                                                                                </action>
+                                                                            </actions>
+                                                                        </event-block>
+                                                                        <event-block sid="822691505151329">
+                                                                            <conditions />
+                                                                            <actions>
+                                                                                <action behavior="MoveTo" id="4" name="Move to XY" sid="131202771272103" type="EnemyGallery">
+                                                                                    <param id="0" name="X">Self.NextPosX</param>
+                                                                                    <param id="1" name="Y">Self.Y</param>
+                                                                                </action>
+                                                                                <action id="4" name="Set animation" sid="164499250932898" type="EnemyGallerySprite">
+                                                                                    <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Running&quot;</param>
+                                                                                    <param id="1" name="From">1</param>
+                                                                                </action>
+                                                                                <action id="-10" name="Set value" sid="974162377512613" type="EnemyGallery">
+                                                                                    <param id="0" name="Instance variable">State</param>
+                                                                                    <param id="1" name="Value">&quot;preparing shooting&quot;</param>
+                                                                                </action>
+                                                                            </actions>
+                                                                        </event-block>
+                                                                    </sub-events>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="961878826006749">
+                                                    <conditions>
+                                                        <condition id="2" name="Is playing" sid="390240657661622" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Shoot&quot;</param>
+                                                        </condition>
+                                                        <condition id="3" name="Compare frame" sid="311187389088277" type="EnemyGallerySprite">
+                                                            <param id="0" name="Comparison">4</param>
+                                                            <param id="1" name="Number">1</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="473679897001174" type="EnemyGallerySprite">
+                                                            <param id="0" name="Instance variable">IsFrameTrigger</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="212373402191578" type="EnemyGallerySprite">
+                                                            <param id="0" name="Instance variable">IsFrameTrigger</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="932942110299216" type="Function">
+                                                            <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; Shoot&quot;</param>
+                                                            <param id="1" name="Parameter {n}">EnemyGallery.UID</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="262580522045731" type="Audio">
+                                                            <param id="0" name="Audio file">Rifle_Shot</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume</param>
+                                                            <param id="1" name="Tag (optional)">&quot;Enemy_SFX&quot; &amp; EnemyGallery.UID</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>Bugfix attempt enemies walking but not doing shit.</comment>
+                                                <event-block sid="884195028920708">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="182991577296370" type="System">
+                                                            <param id="0" name="Interval (seconds)">0.1</param>
+                                                        </condition>
+                                                        <condition behavior="MoveTo" id="3" inverted="1" name="Is moving" sid="857861283663163" type="EnemyGallery" />
+                                                        <condition id="2" name="Is playing" sid="227875831001337" type="EnemyGallerySprite">
+                                                            <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Running&quot;</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="394588720211513" type="EnemyGallery">
+                                                            <param id="0" name="Instance variable">IsAttacking</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="178266215157541">
+                                            <conditions>
+                                                <condition id="4" name="On finished" sid="672921343228760" type="EnemyGallerySprite">
+                                                    <param id="0" name="Animation">&quot;NormieCaminanteShoot&quot;</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="384100787656675" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Caminante&quot;</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="257547363991065" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="451233440516704" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsAttacking</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="725035134189861" title="M_EnemyAI_Gallery[AI] &gt; Disparo">
+                            <sub-events>
+                                <event-block sid="437620434977261">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="815722332031839" type="Function">
+                                            <param id="0" name="Name">&quot;M_EnemyAI_World -&gt; Shoot&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <variable constant="0" name="EnemyUID" sid="234099154086258" static="0" type="number">0</variable>
+                                        <event-block sid="442055125264486">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="738719032297282" type="System">
+                                                    <param id="0" name="Variable">EnemyUID</param>
+                                                    <param id="1" name="Value">Function.Param(0)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="716968820172645">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="352589653261018" type="System">
+                                                    <param id="0" name="First value">EnemyBullet.Count</param>
+                                                    <param id="1" name="Comparison">3</param>
+                                                    <param id="2" name="Second value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="537239366760351">
+                                                    <conditions>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="941644669353145" type="PlayerStuff">
+                                                            <param id="0" name="Instance variable">IsCrouching</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="472625287565483">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="820682536249492" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="705495506365104" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Estatico&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Spawn another object" sid="728062032863746" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Object">EnemyBullet</param>
+                                                                    <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                                                                    <param id="2" name="Image point">1</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="980619425260828" type="EnemyBullet">
+                                                                    <param id="0" name="Instance variable">DamageAmount</param>
+                                                                    <param id="1" name="Value">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="760953623052047">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="263990252604446" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="656077440794230" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Caminante&quot;</param>
+                                                                </condition>
+                                                                <condition id="-21" name="Is between values" sid="390455494317643" type="System">
+                                                                    <param id="0" name="Value">EnemyGallerySprite.ImagePointX(1)</param>
+                                                                    <param id="1" name="Lower bound">20</param>
+                                                                    <param id="2" name="Upper bound">320</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Spawn another object" sid="986228720692223" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Object">EnemyBullet</param>
+                                                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                                    <param id="2" name="Image point">1</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="420684211557733" type="EnemyBullet">
+                                                                    <param id="0" name="Instance variable">DamageAmount</param>
+                                                                    <param id="1" name="Value">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="906901738153048">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="138423802336875" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="121147563229459" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Frenetico&quot;</param>
+                                                                </condition>
+                                                                <condition id="-21" name="Is between values" sid="127680645539959" type="System">
+                                                                    <param id="0" name="Value">EnemyGallerySprite.ImagePointX(1)</param>
+                                                                    <param id="1" name="Lower bound">20</param>
+                                                                    <param id="2" name="Upper bound">320</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Spawn another object" sid="770186031028236" type="EnemyGallerySprite">
+                                                                    <param id="0" name="Object">EnemyBullet</param>
+                                                                    <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                                                                    <param id="2" name="Image point">1</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="563828019280748" type="EnemyBullet">
+                                                                    <param id="0" name="Instance variable">DamageAmount</param>
+                                                                    <param id="1" name="Value">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="152217006017554">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="489709614571741" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="203086588936620" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Explosivo&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="800267052261843">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="734152617077476" type="System" />
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="383695165312628">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="131783353532706" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="671305590226414" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Estatico&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="850939033830375" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; WallTakeDamage&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="317308199279066">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="398550012611540" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="886359903517596" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Caminante&quot;</param>
+                                                                </condition>
+                                                                <condition id="-21" name="Is between values" sid="614192475943651" type="System">
+                                                                    <param id="0" name="Value">EnemyGallerySprite.ImagePointX(1)</param>
+                                                                    <param id="1" name="Lower bound">20</param>
+                                                                    <param id="2" name="Upper bound">320</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="187832736208944" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; WallTakeDamage&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="775166283513000">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="326679110164677" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="564616007665367" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Frenetico&quot;</param>
+                                                                </condition>
+                                                                <condition id="-21" name="Is between values" sid="910464408160121" type="System">
+                                                                    <param id="0" name="Value">EnemyGallerySprite.ImagePointX(1)</param>
+                                                                    <param id="1" name="Lower bound">20</param>
+                                                                    <param id="2" name="Upper bound">320</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="909705624796141" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; WallTakeDamage&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="116593564330021">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="846033209147545" type="EnemyGallery">
+                                                                    <param id="0" name="Unique ID">EnemyUID</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="799071680185779" type="EnemyGallery">
+                                                                    <param id="0" name="Instance variable">EnemySubType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Explosivo&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="694205516906788" type="Function">
+                                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; WallTakeDamage&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">EnemyGallery.DamageAmount</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <variable constant="1" name="ITERATION" sid="748672896876789" static="0" type="number">0.02</variable>
+                                <event-block sid="375992303389177">
+                                    <conditions>
+                                        <condition id="-9" name="Is visible" sid="634641143567656" type="EnemyBullet" />
+                                        <condition id="-6" name="Every X seconds" sid="368987270019037" type="System">
+                                            <param id="0" name="Interval (seconds)">ITERATION</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <variable constant="1" name="MAX_SIZE" sid="182150769345385" static="0" type="number">80</variable>
+                                        <variable constant="1" name="SIZE_SCALE" sid="166414907080865" static="0" type="number">0.084</variable>
+                                        <event-block sid="808838960733441">
+                                            <conditions>
+                                                <condition id="-5" name="Compare width" sid="276226474414881" type="EnemyBullet">
+                                                    <param id="0" name="Comparison">4</param>
+                                                    <param id="1" name="Width">MAX_SIZE</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="635952076863649" type="EnemyBullet" />
+                                                <action id="0" name="Call function" sid="729671660980026" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; TakeDamage&quot;</param>
+                                                    <param id="1" name="Parameter {n}">EnemyBullet.DamageAmount</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="392212865687406">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="383475029400426" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-7" name="Set size" sid="644187318823598" type="EnemyBullet">
+                                                    <param id="0" name="Width">self.Width + (self.Width * SIZE_SCALE)</param>
+                                                    <param id="1" name="Height">self.Width + (self.Height * SIZE_SCALE)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="828708843529182">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="218870604903918" type="EnemyBullet" />
+                                        <condition id="-8" name="Compare two values" sid="387432733665818" type="System">
+                                            <param id="0" name="First value">EnemyBullet.Count</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="812713838636261" type="EnemyBullet" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="887340104190898" title="M_EnemyAI_Gallery[Collisions]">
+                    <sub-events>
+                        <event-block sid="727580590752976">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="466489331995327" type="System">
+                                    <param id="0" name="Object">EnemyGallery</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="534525564474157" type="EnemyGallery">
+                                    <param id="0" name="Instance variable">IsDead</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="704493111943731">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="130089051166643" type="System">
+                                            <param id="0" name="Object">PlayerBulletImpact</param>
+                                        </condition>
+                                        <condition id="1" name="Is overlapping another object" sid="473044250724371" type="EnemyGallerySprite">
+                                            <param id="0" name="Object">PlayerBulletImpact</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="863071825778308">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="873317660390374" type="Weapon">
+                                                    <param id="0" name="Instance variable">Arma</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="11" name="Set collisions enabled" sid="649705486449903" type="PlayerBulletImpact">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="464664278337810" type="System">
+                                                    <param id="0" name="Object to create">Blood_Particles</param>
+                                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                    <param id="2" name="X">PlayerBulletImpact.X</param>
+                                                    <param id="3" name="Y">PlayerBulletImpact.Y</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="839092677556331" type="Blood_Particles">
+                                                    <param id="0" name="Animation">choose(&quot;Blood1&quot;,&quot;Blood2&quot;,&quot;Blood3&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="332544570205370" type="PlayerBulletImpact">
+                                                    <param id="0" name="Animation">&quot;BulletHit&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="424518145554964" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">Health</param>
+                                                    <param id="1" name="Value">WeaponsPlayer.Damage_Pistol</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="625137566893546">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="364751895660509" type="Weapon">
+                                                    <param id="0" name="Instance variable">Arma</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="11" name="Set collisions enabled" sid="448346443060409" type="PlayerBulletImpact">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="208885526067237" type="System">
+                                                    <param id="0" name="Object to create">Blood_Particles</param>
+                                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                    <param id="2" name="X">PlayerBulletImpact.X</param>
+                                                    <param id="3" name="Y">PlayerBulletImpact.Y</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="296050813969562" type="Blood_Particles">
+                                                    <param id="0" name="Animation">choose(&quot;Blood1&quot;,&quot;Blood2&quot;,&quot;Blood3&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="420066535259422" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">Health</param>
+                                                    <param id="1" name="Value">WeaponsPlayer.Damage_SMG</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="659986867019697" type="PlayerBulletImpact">
+                                                    <param id="0" name="Animation">&quot;BulletHit&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="928287527827524">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="600284906724043" type="Weapon">
+                                                    <param id="0" name="Instance variable">Arma</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="11" name="Set collisions enabled" sid="160241803003147" type="PlayerBulletImpact">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="394577583341052" type="System">
+                                                    <param id="0" name="Object to create">Blood_Particles</param>
+                                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                    <param id="2" name="X">PlayerBulletImpact.X</param>
+                                                    <param id="3" name="Y">PlayerBulletImpact.Y</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="832687777877628" type="Blood_Particles">
+                                                    <param id="0" name="Animation">choose(&quot;Blood1&quot;,&quot;Blood2&quot;,&quot;Blood3&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="202173018960550" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">Health</param>
+                                                    <param id="1" name="Value">WeaponsPlayer.Damage_Shotgun</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="711157093703475">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="122074293130088" type="Weapon">
+                                                    <param id="0" name="Instance variable">Arma</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="11" name="Set collisions enabled" sid="894778200190350" type="PlayerBulletImpact">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="793082985196161" type="System">
+                                                    <param id="0" name="Object to create">Blood_Particles</param>
+                                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                    <param id="2" name="X">PlayerBulletImpact.X</param>
+                                                    <param id="3" name="Y">PlayerBulletImpact.Y</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="778798033872296" type="Blood_Particles">
+                                                    <param id="0" name="Animation">choose(&quot;Blood1&quot;,&quot;Blood2&quot;,&quot;Blood3&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="169921173119773" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">Health</param>
+                                                    <param id="1" name="Value">WeaponsPlayer.Damage_Rifle</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="950040240970608" type="PlayerBulletImpact">
+                                                    <param id="0" name="Animation">&quot;BulletHit&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="564409063677177">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="457527538240078" type="Weapon">
+                                                    <param id="0" name="Instance variable">Arma</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action disabled="1" id="11" name="Set collisions enabled" sid="869073259807881" type="PlayerBulletImpact">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="369171344596577" type="System">
+                                                    <param id="0" name="Object to create">Blood_Particles</param>
+                                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                                    <param id="2" name="X">PlayerBulletImpact.X</param>
+                                                    <param id="3" name="Y">PlayerBulletImpact.Y</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="679693951601971" type="Blood_Particles">
+                                                    <param id="0" name="Animation">choose(&quot;Blood1&quot;,&quot;Blood2&quot;,&quot;Blood3&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="261673526204698" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">Health</param>
+                                                    <param id="1" name="Value">WeaponsPlayer.Damage_Explosivo</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="923343345546730">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="481173447153838" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">Health</param>
+                                                    <param id="1" name="Comparison">3</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="556907531670235" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="969394796366315" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsDead</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="11" name="Set collisions enabled" sid="686635078222697" type="EnemyGallery">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="414822749040218" type="EnemyGallery">
+                                                    <param id="0" name="Instance variable">IsEnabled</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action behavior="MoveTo" id="9" name="Stop" sid="182568932332253" type="EnemyGallery" />
+                                                <action id="-12" name="Subtract from" sid="677281174167981" type="SettingsGalleryShooter">
+                                                    <param id="0" name="Instance variable">EnemyAmount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="260248325261796" type="EnemyGallerySprite">
+                                                    <param id="0" name="Animation">EnemyGallery.EnemyType &amp; EnemyGallery.EnemySubType &amp; &quot;Die&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="428849292989529" type="SettingsGalleryShooter">
+                                                    <param id="0" name="Instance variable">ExpGiven</param>
+                                                    <param id="1" name="Value">50 * self.DifMultiplier</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="455710621938180" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; FreezeFrame&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="474658795182904" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; RecoilHit&quot;</param>
+                                                    <param id="1" name="Parameter {n}">7</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="468494161409065">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="308644234031903" type="SettingsGalleryShooter">
+                                                            <param id="0" name="Instance variable">EnemyAmount</param>
+                                                            <param id="1" name="Comparison">3</param>
+                                                            <param id="2" name="Value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="949221676748790" type="Function">
+                                                            <param id="0" name="Name">&quot;C_GalleryShooter-1 -&gt; CheckGameTransition&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="358421615947632">
+                                                    <conditions>
+                                                        <condition id="5" name="Is tag playing" sid="537876264509046" type="Audio">
+                                                            <param id="0" name="Tag">&quot;Enemy_SFX&quot; &amp; EnemyGallery.UID</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="6" name="Stop" sid="987198189766322" type="Audio">
+                                                            <param id="0" name="Tag">&quot;Enemy_SFX&quot; &amp; EnemyGallery.UID</param>
+                                                        </action>
+                                                        <action id="-16" name="Wait" sid="790279039396906" type="System">
+                                                            <param id="0" name="Seconds">0</param>
+                                                        </action>
+                                                        <action id="7" name="Play (by name)" sid="524393585458799" type="Audio">
+                                                            <param id="0" name="Folder">0</param>
+                                                            <param id="1" name="Audio file name">&quot;Enemy_DeathSound&quot; &amp; choose(&quot;1&quot;,&quot;2&quot;)</param>
+                                                            <param id="3" name="Loop">0</param>
+                                                            <param id="4" name="Volume">VolumeMaster.IsMuted ?  -Infinity : VolumeMaster.SFX_Volume</param>
+                                                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="871027307854265">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="450020571405239" type="System" />
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="389868138745651" type="Transitioner">
+                                                    <param id="0" name="Instance variable">IsZoomingRecoil</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="343208178768436" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Player_Gallery -&gt; RecoilHit&quot;</param>
+                                                    <param id="1" name="Parameter {n}">5</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="417114431547489">
+                            <conditions>
+                                <condition id="5" name="On any finished" sid="774210108071514" type="Blood_Particles" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="663427386218393" type="Blood_Particles" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

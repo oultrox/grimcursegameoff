@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_IntroInGame</name>
+    <events>
+        <event-group description="" sid="814728890155766" title="M_IntroInGame">
+            <sub-events>
+                <event-group description="" sid="670428247076887" title="M_IntroInGame[Init]">
+                    <sub-events>
+                        <event-block sid="358697377335315">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="187802350338331" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="295654102369344" type="System">
+                                    <param id="0" name="Seconds">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="908022509804492">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="733749008198773" type="DialogueManager">
+                                            <param id="0" name="Instance variable">FirstIntroInGameb</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-40" name="Set fullscreen scaling" sid="553755014341078" type="System">
+                                            <param id="0" name="Fullscreen scaling">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="239767917588974" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnDialog</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="589817752703851" type="System">
+                                            <param id="0" name="Seconds">1.5</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="587295783755470" type="DialogueManager">
+                                            <param id="0" name="Instance variable">FirstIntroInGameb</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="835682497989215" type="Function">
+                                            <param id="0" name="Name">&quot;M_Dialogue -&gt; ActivateDialogueLore&quot;</param>
+                                            <param id="1" name="Parameter {n}">6{###}25</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="169559642080033" title="M_World[DialogueInteraction]">
+                    <sub-events>
+                        <event-block sid="773221318557976">
+                            <conditions>
+                                <condition id="1" name="On any click" sid="880874612940930" type="Mouse" />
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="333793385282822" type="DialogueManager">
+                                    <param id="0" name="Instance variable">FirstIntroInGameb</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="349458837057271" type="Text_Dialogue">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="384799085528525">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="605008482629524" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnDialog</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="516522606694320">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="807615876480034" type="DialogueManager">
+                                                    <param id="0" name="Instance variable">CurrentDialogueNumber</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Value">DialogueManager.TopMaxDialogNumber</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="372072432338284" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogueLore&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="782578879924415">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="966095121750364" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="692616938808255" type="DialogueManager">
+                                                    <param id="0" name="Instance variable">IsOnDialog</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="310030507767012" type="Text_Dialogue">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                                <action id="-4" name="Set layer visible" sid="423744587873300" type="System">
+                                                    <param id="0" name="Layer">&quot;Dialogue&quot;</param>
+                                                    <param id="1" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="320681938974160">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="571495340192044" type="System" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="252845264357176">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="547379461518973" type="DialogueManager">
+                                                    <param id="0" name="Instance variable">CurrentDialogueNumber</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Value">DialogueManager.TopMaxDialogNumber</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="121930600754025" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogue&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="584440633123049">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="863129701209413" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="287857402659936" type="DialogueManager">
+                                                    <param id="0" name="Instance variable">IsOnFastDialog</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="634687194277221" type="Text_Dialogue">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                                <action id="-4" name="Set layer visible" sid="669023248154108" type="System">
+                                                    <param id="0" name="Layer">&quot;Dialogue&quot;</param>
+                                                    <param id="1" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

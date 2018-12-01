@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>C_GalleryShooter-1</name>
+    <events>
+        <event-group description="" sid="309745644985949" title="C_GalleryShooter-1">
+            <sub-events>
+                <event-group description="" sid="879341322357010" title="C_GalleryShooter-1[Init]">
+                    <sub-events>
+                        <event-block sid="541087494098756">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="473080976865546" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set cursor style" sid="425770902652431" type="Mouse">
+                                    <param id="0" name="Cursor style">7</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="793669844845222" type="System">
+                                    <param id="0" name="Layer">&quot;Win&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="547297941040210" type="System">
+                                    <param id="0" name="Layer">&quot;Lose&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="565076864756611" type="System">
+                                    <param id="0" name="Layer">&quot;Transition&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="507284088596290" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">GameIsOver</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="789867326626636" type="PlayerStuff">
+                                    <param id="0" name="Instance variable">IsCrouching</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="103546199507700" type="PlayerStuff">
+                                    <param id="0" name="Instance variable">IsReloadingWithoutWall</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="1" name="Set size" sid="579647982349930" type="EnemyAuxPositionFront">
+                                    <param id="0" name="Width">0</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                                <action id="5" name="Push" sid="414278707875597" type="EnemyAuxPositionFront">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">105</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action id="1" name="Set size" sid="376513224102845" type="EnemyAuxPositionBack">
+                                    <param id="0" name="Width">0</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                                <action id="5" name="Push" sid="608542143193843" type="EnemyAuxPositionBack">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">108</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="931506850786896" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">BackY</param>
+                                    <param id="1" name="Value">117</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="238210752307354" type="SettingsGalleryShooter">
+                                    <param id="0" name="Instance variable">FrontY</param>
+                                    <param id="1" name="Value">130</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="292528380923370">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="436583305818120" type="System">
+                                            <param id="0" name="Name">&quot;i&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">6</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Push" sid="354378922679632" type="EnemyAuxPositionFront">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">EnemyAuxPositionFront.At(loopindex-1) + 45</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                        <action id="5" name="Push" sid="712167975846566" type="EnemyAuxPositionBack">
+                                            <param id="0" name="Where">0</param>
+                                            <param id="1" name="Value">EnemyAuxPositionBack.At(loopindex-1) +51</param>
+                                            <param id="2" name="Axis">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="304034995771052" title="C_GalleryShooter-1[Includes]">
+                    <sub-events>
+                        <include>M_Player_Gallery</include>
+                        <include>M_EnemyAI_Gallery</include>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="436509330280659" title="C_GalleryShooter-1[Crosshair]">
+                    <sub-events>
+                        <event-block sid="853264654055382">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Set position" sid="117845450365053" type="Crosshair">
+                                    <param id="0" name="X">Mouse.X</param>
+                                    <param id="1" name="Y">Mouse.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="761327568257693" title="C_GalleryShooter-1[API]">
+                    <sub-events>
+                        <event-block sid="350487857879421">
+                            <conditions>
+                                <condition id="0" name="On function" sid="966368275927475" type="Function">
+                                    <param id="0" name="Name">&quot;C_GalleryShooter-1 -&gt; CheckGameTransition&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="192689626695583">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="560436442263077" type="SettingsGalleryShooter">
+                                            <param id="0" name="Instance variable">EnemyAmount</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="912516507168324" type="PlayerStuff">
+                                            <param id="0" name="Instance variable">Health</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="6" name="Stop" sid="629333857389703" type="Audio">
+                                            <param id="0" name="Tag">&quot;Music_Combat&quot;</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="383561640520395" type="EnemyBullet" />
+                                        <action id="-11" name="Add to" sid="222269154825506" type="PlayerStuff">
+                                            <param id="0" name="Instance variable">TotalExp</param>
+                                            <param id="1" name="Value">SettingsGalleryShooter.ExpGiven</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="882026525508734" type="SettingsGalleryShooter">
+                                            <param id="0" name="Instance variable">GameIsOver</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="554438112520740" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="174582865773357" type="TransitionFade">
+                                            <param id="0" name="Animation">&quot;Close&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-4" name="Set layer visible" sid="731982952565162" type="System">
+                                            <param id="0" name="Layer">&quot;Transition&quot;</param>
+                                            <param id="1" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="621558976836940" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="692035578918724" type="WinText">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-4" name="Set layer visible" sid="616540424851874" type="System">
+                                            <param id="0" name="Layer">&quot;Win&quot;</param>
+                                            <param id="1" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="315749355060591" type="System">
+                                            <param id="0" name="Seconds">2</param>
+                                        </action>
+                                        <action id="1" name="Reset variables" sid="438072051387099" type="SettingsGalleryShooter" />
+                                        <action id="0" name="Call function" sid="744143850958687" type="Function">
+                                            <param id="0" name="Name">&quot;M_Player_Gallery -&gt; GoBack&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="131992992440280">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="896139172568842" title="C_GalleryShooter-1[Win]">
+                    <sub-events>
+                        <event-block sid="912184728876460">
+                            <conditions>
+                                <condition id="-9" name="Layer is visible" sid="534873998485946" type="System">
+                                    <param id="0" name="Layer">&quot;Win&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="628256273522929">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="512410981592125" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="799474697819918" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;ExpEarnedAmount&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="AnimatedCounter" id="0" name="Set value" sid="508436402468240" type="Text_Perk">
+                                            <param id="0" name="Value">SettingsGalleryShooter.ExpGiven</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="133933169527799">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

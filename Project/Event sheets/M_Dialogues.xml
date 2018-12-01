@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_Dialogues</name>
+    <events>
+        <event-group description="" sid="317771357752931" title="M_Dialogues">
+            <sub-events>
+                <event-group description="" sid="576719927028253" title="M_Dialogues[Init]">
+                    <sub-events>
+                        <event-block sid="611083281035253">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="234766672752865" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Request project file" sid="943139851521469" type="AJAX">
+                                    <param id="0" name="Tag">&quot;Dialogos&quot;</param>
+                                    <param id="1" name="File">Lore Dialogos.json</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="561366529768860">
+                            <conditions>
+                                <condition id="-29" name="On load complete" sid="544467963113321" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Request project file" sid="979662116402265" type="AJAX">
+                                    <param id="0" name="Tag">&quot;Dialogos&quot;</param>
+                                    <param id="1" name="File">Lore Dialogos.json</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="157456428433354">
+                            <conditions>
+                                <condition id="0" name="On completed" sid="692692867160674" type="AJAX">
+                                    <param id="0" name="Tag">&quot;Dialogos&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="11" name="Load" sid="353025820957629" type="DialogueLore">
+                                    <param id="0" name="JSON">AJAX.LastData</param>
+                                </action>
+                                <action id="14" name="Log" sid="171524264573989" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">DialogueLore.AsJSON</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="227225815855710" title="M_Dialogues[API]">
+                    <sub-events>
+                        <event-block sid="116784255383830">
+                            <conditions>
+                                <condition id="0" name="On function" sid="855165631606282" type="Function">
+                                    <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogue&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="822242105976483">
+                                    <conditions>
+                                        <condition id="0" name="Compare at X" sid="617241598980091" type="DialogueDynamic">
+                                            <param id="0" name="X">DialogueManager.CurrentDialogueNumber</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="384846956054914" type="Text_Dialogue">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="510797219096994" type="Text_Dialogue">
+                                            <param id="0" name="Text">DialogueDynamic.At(DialogueManager.CurrentDialogueNumber)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="864616203743707">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="667229592365634" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnFastDialog</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="628465641744428" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnDialog</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="354456512975025">
+                            <conditions>
+                                <condition id="0" name="On function" sid="698540533218710" type="Function">
+                                    <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogueLore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="DialogueSoundName" sid="722801973334328" static="0" type="text"></variable>
+                                <event-block sid="541800042824394">
+                                    <conditions>
+                                        <condition id="0" name="Compare at X" sid="689579690452860" type="DialogueLore">
+                                            <param id="0" name="X">DialogueManager.CurrentDialogueNumber</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="456741828238732" type="Text_Dialogue">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="813079886313537" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnDialog</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="981874926683453" type="DialogueManager">
+                                            <param id="0" name="Instance variable">IsOnFastDialog</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="562090576136166" type="Text_Dialogue">
+                                            <param id="0" name="Text">DialogueLore.At(DialogueManager.CurrentDialogueNumber)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="429884113501734" type="System">
+                                            <param id="0" name="Variable">DialogueSoundName</param>
+                                            <param id="1" name="Value">DialogueLore.At(DialogueManager.CurrentDialogueNumber,1)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="670742706394929">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="940979511622421" type="System">
+                                                    <param id="0" name="First value">DialogueSoundName</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">&quot;&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Play (by name)" sid="414928261818002" type="Audio">
+                                                    <param id="0" name="Folder">0</param>
+                                                    <param id="1" name="Audio file name">DialogueSoundName</param>
+                                                    <param id="3" name="Loop">0</param>
+                                                    <param id="4" name="Volume">-11</param>
+                                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="797573595616219">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="364684037571624" type="DialogueManager">
+                                            <param id="0" name="Instance variable">CurrentDialogueNumber</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="403976822848938">
+                            <conditions>
+                                <condition id="0" name="On function" sid="846927718798819" type="Function">
+                                    <param id="0" name="Name">&quot;M_Dialogue -&gt; ActivateDialogueLore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="MaxDialogNumber" sid="867854346885518" static="0" type="number">0</variable>
+                                <variable constant="0" name="InitialDialogNumber" sid="723681729627949" static="0" type="number">0</variable>
+                                <event-block sid="873052715565850">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="276912584967897" type="Text_Dialogue">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="865436054385249" type="System">
+                                            <param id="0" name="Variable">InitialDialogNumber</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="614930578297551" type="System">
+                                            <param id="0" name="Variable">MaxDialogNumber</param>
+                                            <param id="1" name="Value">Function.Param(1)</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="310144609864157" type="DialogueManager">
+                                            <param id="0" name="Instance variable">CurrentDialogueNumber</param>
+                                            <param id="1" name="Value">InitialDialogNumber</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="782269528025260" type="DialogueManager">
+                                            <param id="0" name="Instance variable">TopMaxDialogNumber</param>
+                                            <param id="1" name="Value">MaxDialogNumber</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="315070710014889" type="Function">
+                                            <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogueLore&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="975577155737939" type="Text_Dialogue">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-4" name="Set layer visible" sid="477648047557574" type="System">
+                                            <param id="0" name="Layer">&quot;Dialogue&quot;</param>
+                                            <param id="1" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Necesita ser cargado primero el arreglo de lo que dirá dinamicamente antes de poner esto.</comment>
+                        <event-block sid="747751238201275">
+                            <conditions>
+                                <condition id="0" name="On function" sid="725322286974265" type="Function">
+                                    <param id="0" name="Name">&quot;M_Dialogue -&gt; ActivateDynamicLore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="MaxDialogNumber" sid="295496505750474" static="0" type="number">0</variable>
+                                <variable constant="0" name="InitialDialogNumber" sid="425048196607385" static="0" type="number">0</variable>
+                                <event-block sid="195298271424264">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="432138677995412" type="Text_Dialogue">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="778387373147312" type="System">
+                                            <param id="0" name="Variable">InitialDialogNumber</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="786102396930170" type="System">
+                                            <param id="0" name="Variable">MaxDialogNumber</param>
+                                            <param id="1" name="Value">Function.Param(1)</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="548813761514567" type="DialogueManager">
+                                            <param id="0" name="Instance variable">CurrentDialogueNumber</param>
+                                            <param id="1" name="Value">InitialDialogNumber</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="430417682153422" type="DialogueManager">
+                                            <param id="0" name="Instance variable">TopMaxDialogNumber</param>
+                                            <param id="1" name="Value">MaxDialogNumber</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="273296413820131" type="Function">
+                                            <param id="0" name="Name">&quot;M_Dialogue -&gt; SetDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="372197347079193" type="Text_Dialogue">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

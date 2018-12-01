@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_ZOrder</name>
+    <events>
+        <event-group description="" sid="232098086799544" title="M_ZOrder">
+            <sub-events>
+                <event-group description="" sid="610275992637962" title="M_ZOrder[Interaction]">
+                    <sub-events>
+                        <event-block sid="363579417310895">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="148660110204125" type="System">
+                                    <param id="0" name="Interval (seconds)">0.05</param>
+                                </condition>
+                                <condition id="-3" name="Is on-screen" sid="555044246707862" type="ZObjects" />
+                                <condition id="-24" name="For Each (ordered)" sid="533316268857273" type="System">
+                                    <param id="0" name="Object">ZObjects</param>
+                                    <param id="1" name="Expression">ZObjects.Y</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-24" name="Move to top" sid="398476775030870" type="ZObjects" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

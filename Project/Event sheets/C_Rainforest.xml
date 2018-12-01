@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>C_Rainforest</name>
+    <events>
+        <event-group description="" sid="241785567497382" title="C_World1">
+            <sub-events>
+                <event-group description="" sid="557963905488157" title="C_World1[Include]">
+                    <sub-events>
+                        <include>M_SaveManager</include>
+                        <include>M_Player_World</include>
+                        <include>M_EnemyAI_World</include>
+                        <include>M_Dialogues</include>
+                        <include>M_ZOrder</include>
+                        <include>M_Transitioner</include>
+                        <include>M_Rain</include>
+                        <include>M_Perks</include>
+                        <include>M_IntroInGame</include>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="116861795800075" title="C_World1[Init]">
+                    <sub-events>
+                        <event-block sid="521026787847288">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="573979009508578" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set cursor from sprite" sid="166319771576651" type="Mouse">
+                                    <param id="0" name="Sprite">Mouse_Spirte</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="992004028243690" type="TransitionFade">
+                                    <param id="0" name="Animation">&quot;Open&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="871812378974279" type="System">
+                                    <param id="0" name="Layer">&quot;Transition&quot;</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="447066231851736" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="498715940922973" type="System">
+                                    <param id="0" name="Layer">&quot;Transition&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="419760897945200">
+                                    <conditions>
+                                        <condition id="5" inverted="1" name="Is tag playing" sid="469505542052723" type="Audio">
+                                            <param id="0" name="Tag">&quot;Music_Rainforest&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="212059849118534" type="Audio">
+                                            <param id="0" name="Audio file">Rainforest1</param>
+                                            <param id="2" name="Loop">1</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;Music_Rainforest&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

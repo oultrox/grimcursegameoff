@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="0">RainForest</layout>
+        <layout order="1">World-1</layout>
+        <layout active="1" order="2">Raison</layout>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1">
+        <family expanded="0" name="ZObjects" />
+    </families-expanded>
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="object-folder/App/" />
+        <folder expanded="1" path="object-folder/App/Spritefonts/" />
+        <folder expanded="1" path="object-folder/App/World-1/" />
+        <folder expanded="1" path="object-folder/App/Player/" />
+        <folder expanded="1" path="object-folder/App/Enemies/" />
+        <folder expanded="1" path="object-folder/App/Helpers/" />
+        <folder expanded="1" path="object-folder/App/Gallery/" />
+        <folder expanded="1" path="object-folder/App/Gallery/Common/" />
+        <folder expanded="1" path="object-folder/App/Gallery/Enemies/" />
+        <folder expanded="1" path="object-folder/App/Common/" />
+        <folder expanded="1" path="object-folder/App/Arrays/" />
+        <folder expanded="1" path="object-folder/App/Tilemaps/" />
+        <folder expanded="1" path="object-folder/Core/" />
+        <folder expanded="1" path="object-folder/Core/Plugins/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="layout-folder/Mundos/" />
+        <folder expanded="1" path="layout-folder/GalleryShooterPlane/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="event-folder/Modules/" />
+        <folder expanded="1" path="event-folder/Controllers/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="1" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/Player/" />
+        <folder expanded="1" path="animation-folder/PlayerSkin/" />
+        <folder expanded="1" path="animation-folder/Enemy/" />
+        <folder expanded="1" path="animation-folder/EnemySkin/" />
+        <folder expanded="1" path="animation-folder/EnemyZone/" />
+        <folder expanded="1" path="animation-folder/Boss1_World/" />
+        <folder expanded="1" path="animation-folder/Crosshair/" />
+        <folder expanded="1" path="animation-folder/PlayerBulletImpact/" />
+        <folder expanded="1" path="animation-folder/GalleryCamera/" />
+        <folder expanded="1" path="animation-folder/EnemyGallery/" />
+        <folder expanded="1" path="animation-folder/EnemyGallerySprite/" />
+        <folder expanded="1" path="animation-folder/EnemyGallerySprite/Normies/" />
+        <folder expanded="1" path="animation-folder/EnemyGallerySprite/Normies/Estaticos/" />
+        <folder expanded="1" path="animation-folder/EnemyGallerySprite/Normies/Freneticos/" />
+        <folder expanded="1" path="animation-folder/EnemyGallerySprite/Normies/Caminantes/" />
+        <folder expanded="1" path="animation-folder/EnemyBullet/" />
+        <folder expanded="1" path="animation-folder/Weapon/" />
+        <folder expanded="1" path="animation-folder/SketchBg/" />
+        <folder expanded="1" path="animation-folder/RainForest_DetailObjects/" />
+        <folder expanded="1" path="animation-folder/los_Solid/" />
+        <folder expanded="1" path="animation-folder/PerkPopUpWindow/" />
+        <folder expanded="1" path="animation-folder/PerkIcon/" />
+        <folder expanded="1" path="animation-folder/PlayerWall/" />
+        <folder expanded="1" path="animation-folder/Engage_Title/" />
+        <folder expanded="1" path="animation-folder/Blood_Particles/" />
+        <folder expanded="1" path="animation-folder/AmmoPickup/" />
+        <folder expanded="1" path="animation-folder/BazookaParticle/" />
+        <folder expanded="1" path="animation-folder/backpack/" />
+        <folder expanded="1" path="animation-folder/interactionHelper/" />
+        <folder expanded="1" path="animation-folder/WinText/" />
+        <folder expanded="1" path="animation-folder/Star/" />
+        <folder expanded="1" path="animation-folder/Rain_splash/" />
+        <folder expanded="1" path="animation-folder/Light/" />
+        <folder expanded="1" path="animation-folder/Wall_BackgroundBar/" />
+        <folder expanded="1" path="animation-folder/WallParticle/" />
+        <folder expanded="1" path="animation-folder/Boss_1/" />
+        <folder expanded="1" path="animation-folder/CircularBullet/" />
+        <folder expanded="1" path="animation-folder/TransitionFade/" />
+        <folder expanded="1" path="animation-folder/HealthPickup/" />
+        <folder expanded="1" path="animation-folder/HUDBars_Background/" />
+        <folder expanded="1" path="animation-folder/Boss1_HealthPackParticle/" />
+        <folder expanded="1" path="animation-folder/Mouse_Spirte/" />
+        <folder expanded="1" path="animation-folder/HurtScreen/" />
+        <folder expanded="1" path="animation-folder/SketchBg2/" />
+        <folder expanded="1" path="animation-folder/ZoneTeleporter/" />
+        <folder expanded="1" path="animation-folder/ZoneTeleporterPos/" />
+        <folder expanded="1" path="animation-folder/KeyPickUp/" />
+        <folder expanded="1" path="animation-folder/Lose_Text/" />
+    </folders-expanded>
+</c2uistate>

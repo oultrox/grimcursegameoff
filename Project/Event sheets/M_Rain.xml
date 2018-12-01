@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_Rain</name>
+    <events>
+        <event-group description="" sid="261755087656125" title="M_Rain">
+            <sub-events>
+                <event-group description="" sid="362211430347203" title="M_Rain[Init]">
+                    <sub-events>
+                        <comment>Create 50 random stars with different speeds and sizes on startup to create a space background effect.  The stars have a wrap behavior which keeps them on-screen.</comment>
+                        <event-block sid="399565349227083">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="480482163693191" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="134532041946987" type="RainHelper">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="757261026287598" type="RainHelper">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="913910707633164">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="241581883076849" type="System" />
+                                <condition id="-12" name="Repeat" sid="692172833553439" type="System">
+                                    <param id="0" name="Count">20</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="-16" name="Wait" sid="579534449932435" type="System">
+                                    <param id="0" name="Seconds">0.05*loopindex</param>
+                                </action>
+                                <action disabled="1" id="-3" name="Create object" sid="255658631518025" type="System">
+                                    <param id="0" name="Object to create">Star</param>
+                                    <param id="1" name="Layer">&quot;RainLayer&quot;</param>
+                                    <param id="2" name="X">random(WindowWidth)</param>
+                                    <param id="3" name="Y">random(WindowHeight)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="584304606977507">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="498132611240964" type="RainHelper">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                        <condition id="-16" name="Pick random instance" sid="368929180887693" type="System">
+                                            <param id="0" name="Object">RainHelper</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="828963571371399" type="System">
+                                            <param id="0" name="Seconds">0.05*loopindex</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="961621013539643" type="System">
+                                            <param id="0" name="Object to create">Star</param>
+                                            <param id="1" name="Layer">&quot;RainLayer&quot;</param>
+                                            <param id="2" name="X">RainHelper.X</param>
+                                            <param id="3" name="Y">RainHelper.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="434827167802133">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="514072981327198" type="Star" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="760584565929558" type="Star">
+                                    <param id="0" name="Speed">random(500,700)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="901592324502713" type="Star">
+                                    <param id="0" name="Angle">135</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="602550725341221">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="855020840276326" type="System">
+                                    <param id="0" name="Interval (seconds)">random(0.06,0.4)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="144077396431466" type="System">
+                                    <param id="0" name="Object to create">Rain_splash</param>
+                                    <param id="1" name="Layer">&quot;Objetos Z Order&quot;</param>
+                                    <param id="2" name="X">random(Player.X - 200 ,  Player.X + 200)</param>
+                                    <param id="3" name="Y">random(Player.Y - 70 , Player.Y  +70 )</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="911085818540379">
+                            <conditions>
+                                <condition id="5" name="On any finished" sid="391668828140512" type="Rain_splash" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="687907669910592" type="Rain_splash" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="659153168195385" title="M_Rain[Interaction]">
+                    <sub-events>
+                        <event-block sid="331519195991424">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="401096952142475" type="Star">
+                                    <param id="0" name="Object">RainHelper</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="948488316122236" type="RainHelper">
+                                    <param id="0" name="Instance variable">type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="351303553743499">
+                                    <conditions>
+                                        <condition id="-19" name="Pick all" sid="165139334538685" type="System">
+                                            <param id="0" name="Object">RainHelper</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="206811927040896" type="RainHelper">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                        <condition id="-16" name="Pick random instance" sid="753146031047598" type="System">
+                                            <param id="0" name="Object">RainHelper</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set position to another object" sid="212490248938390" type="Star">
+                                            <param id="0" name="Object">RainHelper</param>
+                                            <param id="1" name="Image point (optional)">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

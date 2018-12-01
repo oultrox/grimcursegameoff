@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_SaveManager</name>
+    <events>
+        <event-group description="" sid="982517448439749" title="M_SaveManager">
+            <sub-events>
+                <event-block sid="213273943909164">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="844172582268480" type="System" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="541679014590023" type="SaveManager">
+                            <param id="0" name="Instance variable">FirstTimeSaved</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="199892056463187" type="SaveManager">
+                            <param id="0" name="Instance variable">FirstTimeSaved</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-36" name="Save" sid="595595877617690" type="System">
+                            <param id="0" name="Slot">&quot;MySave&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="325393856981184">
+                    <conditions>
+                        <condition id="0" name="On function" sid="274108970117911" type="Function">
+                            <param id="0" name="Name">&quot;M_SaveManager -&gt; RaisonCheckPoint&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="300399085146237">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="501543808808869" type="SaveManager">
+                                    <param id="0" name="Instance variable">CheckPointRaison</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="396872577589557" type="SaveManager">
+                                    <param id="0" name="Instance variable">CheckPointRaison</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-36" name="Save" sid="547344271424327" type="System">
+                                    <param id="0" name="Slot">&quot;MySave&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="850147757286989">
+                    <conditions>
+                        <condition id="-28" name="On save complete" sid="780575310807913" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="429385556742320">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="122685700274507" type="Text_Dialogue">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="504537900498428" type="Text_Dialogue">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="792442101184557" type="Text_Dialogue">
+                                    <param id="0" name="Text">&quot;Saved Completed.&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="798091822453578" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="0" name="Set text" sid="613881362509999" type="Text_Dialogue">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="386681460430831" type="Text_Dialogue">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="758976259226008">
+                    <conditions>
+                        <condition id="-43" name="On save failed" sid="936130486377601" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="342927628984485">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="266131336194649" type="Text_Dialogue">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="657697833091202" type="Text_Dialogue">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="943827520374573" type="Text_Dialogue">
+                                    <param id="0" name="Text">&quot;Saved Failed. Browser error perhaps?&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="697508884436496" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="0" name="Set text" sid="514361800810863" type="Text_Dialogue">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="762503769619568" type="Text_Dialogue">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="640878688192880">
+                    <conditions>
+                        <condition id="-29" name="On load complete" sid="676312382464673" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="345906051017944">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="864097002846124" type="Text_Dialogue">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="710573430231263" type="Text_Dialogue">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="365335048846286" type="Text_Dialogue">
+                                    <param id="0" name="Text">&quot;Load Completed.&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="171272986597338" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="0" name="Set text" sid="938314851581992" type="Text_Dialogue">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="678127768152813" type="Text_Dialogue">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,12 @@
+{"c2array":true,"size":[8,5,1],"data":
+    [
+        [["Unlocks The automatic SMG"],["Increases SMG damage."], ["Damage Increased. Next rank increases SMG fire rate."],["Fully Upgraded."], [0]],
+        [["Unlocks The Shotgun"],["Increases Shotgun damage."], ["Damage Increased. Next rank increases Shotgun fire rate."],["Fully Upgraded."], [0]],
+        [["Unlocks The Rifle"],["Increases Rifle damage."], ["Damage Increased. Next rank increases rifle fire rate."],["Fully Upgraded."], [0]],
+        [["Unlocks the explosive weapon"],["Increases explosive stock munition."], ["Damage Increased. Next rank increases explosive fire rate."],["Fully Upgraded."], [0]],
+        [["Unlocks Health Regen!"],[""],[""],[""],[0]],
+        [["Reinforces your cover wall health. "],[""],[""],[""],[0]],
+        [["Increases Fire damage and fire rate of the Pistol."],[""],[""],[""],[0]],
+        [["Increases Coverage speed."],[""],[""],[""],[0]]
+    ]
+}

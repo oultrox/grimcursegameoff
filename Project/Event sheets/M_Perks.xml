@@ -1,0 +1,1190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>M_Perks</name>
+    <events>
+        <include>M_Dialogues</include>
+        <variable constant="1" name="IDX_PERK_RANK" sid="825835955175435" static="0" type="number">4</variable>
+        <comment>La idea es utilizar un panel reutilizable pre fabricado con el texto ya pineado para ejecutar la descripcion y progreso de cada perk guardado probablemente en un arreglo donde puedo saber la cantidad de putnos que tiene el perk y su descripción e ID quizás.</comment>
+        <event-group description="" sid="205280580990831" title="M_Perks">
+            <sub-events>
+                <event-group description="" sid="308313743781686" title="M_Perks[Init]">
+                    <sub-events>
+                        <event-block sid="563296695170101">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="974749561969091" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="395924274208227">
+                                    <conditions>
+                                        <condition id="6" name="Is empty" sid="828072335028443" type="Perks" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Request project file" sid="473007659934882" type="AJAX">
+                                            <param id="0" name="Tag">&quot;Perks&quot;</param>
+                                            <param id="1" name="File">Perks.json</param>
+                                        </action>
+                                        <action id="14" name="Log" sid="225362844229307" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">&quot;Load Array!&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="698210386025335">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="754797627583445" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="125611661344900" type="Function">
+                                            <param id="0" name="Name">&quot;M_Perks -&gt; LoadPerks&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="996942223304063">
+                            <conditions>
+                                <condition id="0" name="On completed" sid="288472172758592" type="AJAX">
+                                    <param id="0" name="Tag">&quot;Perks&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="11" name="Load" sid="792067820861162" type="Perks">
+                                    <param id="0" name="JSON">AJAX.LastData</param>
+                                </action>
+                                <action id="0" name="Call function" sid="819810244697762" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; LoadPerks&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="704206976103498">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="111643576679776" title="M_Perks[Interaction]">
+                    <sub-events>
+                        <event-block sid="164637135951429">
+                            <conditions>
+                                <condition id="7" name="Cursor is over object" sid="243463940856690" type="Mouse">
+                                    <param id="0" name="Object">PerkIcon</param>
+                                </condition>
+                                <condition id="-9" name="Layer is visible" sid="414508968652224" type="System">
+                                    <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="529056211223887">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="494234690385154" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;PerkDescription&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="476601586261044" type="Text_Perk">
+                                            <param id="0" name="Text">Perks.At(PerkIcon.PerkID,PerkIcon.PerkRank)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="411236478456336">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="167711451369475" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">PerkIcon</param>
+                                </condition>
+                                <condition id="-9" name="Layer is visible" sid="393375477190426" type="System">
+                                    <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="245881141115233" type="PlayerStuff">
+                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="325802426555465">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="250422158492727" type="PerkIcon">
+                                            <param id="0" name="Instance variable">PerkRank</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="794926811277103" type="Function">
+                                            <param id="0" name="Name">&quot;M_Perks -&gt; UnlockPerk&quot;</param>
+                                            <param id="1" name="Parameter {n}">PerkIcon.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="916742656383925">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="101785014614888" type="Keyboard">
+                                    <param id="0" name="Key">75</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="518087020333716" type="Player">
+                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="167745332466984" type="DialogueManager">
+                                    <param id="0" name="Instance variable">IsOnDialog</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="224930394366206" type="Player">
+                                    <param id="0" name="Instance variable">StepTimer</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="619121508233753">
+                                    <conditions>
+                                        <condition id="-9" inverted="1" name="Layer is visible" sid="695345695849755" type="System">
+                                            <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set layer visible" sid="421188274380155" type="System">
+                                            <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                            <param id="1" name="Visibility">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="936589662832177" type="Function">
+                                            <param id="0" name="Name">&quot;M_Perks -&gt; LoadAmmo&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="817861233773713">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="707175096468745" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set layer visible" sid="358933275270596" type="System">
+                                            <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                            <param id="1" name="Visibility">0</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="342123344070177" type="Function">
+                                            <param id="0" name="Name">&quot;M_Player_Overworld -&gt; UpdateBars&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="880792769220416">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="381954851323941" type="Keyboard">
+                                    <param id="0" name="Key">27</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="418473870866254" type="Player">
+                                    <param id="0" name="Instance variable">IsInCombat</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="961741810323305" type="Player">
+                                    <param id="0" name="Instance variable">StepTimer</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="218463900709620" type="DialogueManager">
+                                    <param id="0" name="Instance variable">IsOnDialog</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="219028430557992">
+                                    <conditions>
+                                        <condition id="-9" name="Layer is visible" sid="190758432836709" type="System">
+                                            <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set layer visible" sid="760620582332826" type="System">
+                                            <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                            <param id="1" name="Visibility">0</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="629697378650838" type="Function">
+                                            <param id="0" name="Name">&quot;M_Player_Overworld -&gt; UpdateBars&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="220431399098758">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="810594121587466" type="System" />
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="632877772410738">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="216224589587679" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">interactionHelper</param>
+                                </condition>
+                                <condition id="-9" name="Layer is visible" sid="512285719961088" type="System">
+                                    <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set layer visible" sid="396793960736764" type="System">
+                                    <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="337774117247562" type="Function">
+                                    <param id="0" name="Name">&quot;M_Player_Overworld -&gt; UpdateBars&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="306281285027948" title="M_Perks[API]">
+                    <sub-events>
+                        <event-block sid="238117185227428">
+                            <conditions>
+                                <condition id="0" name="On function" sid="932998334687688" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; LoadPerks&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="163235395608463" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="317674006716398">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="485349605647947" type="System">
+                                            <param id="0" name="Object">PerkIcon</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="596557969001883" type="PerkIcon">
+                                            <param id="0" name="Instance variable">PerkRank</param>
+                                            <param id="1" name="Value">Perks.At(PerkIcon.PerkID,IDX_PERK_RANK)</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="190047947645714" type="PerkIcon">
+                                            <param id="0" name="Frame number">self.PerkRank</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="443118053404435">
+                            <conditions>
+                                <condition id="0" name="On function" sid="949564325594941" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; UnlockPerk&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="Perk_UID" sid="973435076406703" static="0" type="number">0</variable>
+                                <event-block sid="358334933074256">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="464831040130017" type="System">
+                                            <param id="0" name="Variable">Perk_UID</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="957203048044425">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="205645841826415" type="PerkIcon">
+                                            <param id="0" name="Unique ID">Perk_UID</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="821552218432746" type="PerkIcon">
+                                            <param id="0" name="Instance variable">PerkRank</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">Self.MaxPerk</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="175619502763636" type="PlayerStuff">
+                                            <param id="0" name="Instance variable">PerkPoints</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <comment>Perk logic assignation due to unlockment</comment>
+                                        <comment>SMG</comment>
+                                        <event-block sid="539135054874182">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="933623321602039" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="496187030697251" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="929662338305917" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="475476811494967" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="952409254982773" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="187873650122537" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkWeaponPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="954907160476886" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="604915793284787" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="608575307618728" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <comment>Unlock</comment>
+                                                <event-block sid="760433377384051">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="489995042242918" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="2" name="Set at X" sid="516328372646461" type="PlayerWeaponry">
+                                                            <param id="0" name="X">2</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>Increases damage</comment>
+                                                <event-block sid="459471070126297">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="781037839697480" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="929518592668607" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">Damage_SMG</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="647617019457156">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="310945687379065" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-12" name="Subtract from" sid="201138630915440" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">FireRate_SMG</param>
+                                                            <param id="1" name="Value">0.02</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Shotgun</comment>
+                                        <event-block sid="605081153231433">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="217779215024957" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="313901324204704" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="391482170573002" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="393861196696668" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="185236944575246" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="166327540630746" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkWeaponPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="192525311194371" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="502271754716591" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="270650892119645" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="140694912287061">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="761650374144543" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="2" name="Set at X" sid="161846937394582" type="PlayerWeaponry">
+                                                            <param id="0" name="X">3</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="787965912877659">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="410108098358037" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="479737070616741" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">Damage_Shotgun</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="215752800243711">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="386837125433853" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-12" name="Subtract from" sid="179566528681809" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">FireRate_Shotgun</param>
+                                                            <param id="1" name="Value">0.05</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Rifle</comment>
+                                        <event-block sid="473969175364943">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="858740115383674" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="505433524925931" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkWeaponPointSpent</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="624934045614372" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="367692421719658" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="490531564229338" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="445399646110062" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="160132898138569" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkWeaponPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="618359727684940" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="775380692912757" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="468818971556972" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="191723169564636">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="758765442507234" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="2" name="Set at X" sid="506927713375089" type="PlayerWeaponry">
+                                                            <param id="0" name="X">4</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="471813470157110">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="908388678534721" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="917799246335767" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">Damage_Rifle</param>
+                                                            <param id="1" name="Value">20</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="617627829836837">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="395883140802630" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-12" name="Subtract from" sid="514536874838726" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">FireRate_Rifle</param>
+                                                            <param id="1" name="Value">0.05</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Explosive</comment>
+                                        <event-block sid="713645106359398">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="103016594649365" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="146820171286922" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkWeaponPointSpent</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="829192673649424" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="663614026242778" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="342465868122373" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="197990112339792" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="497042991351796" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkWeaponPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="521309959161373" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="493282919380467" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="227289907316364" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="420421135549916">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="140966127642290" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="2" name="Set at X" sid="243393635063602" type="PlayerWeaponry">
+                                                            <param id="0" name="X">5</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="797099135860029">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="308488793070422" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="492281256541760" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">Damage_Explosivo</param>
+                                                            <param id="1" name="Value">30</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="143640887437636">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="836006689919568" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-12" name="Subtract from" sid="953861479880643" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">FireRate_Explosivo</param>
+                                                            <param id="1" name="Value">0.05</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>UTILITY</comment>
+                                        <comment>Health regen</comment>
+                                        <event-block sid="399873156520642">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="395729520061417" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="289932638200169" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="329957748867905" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="860070130105614" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="677913617555655" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="114744959118142" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkUtilityPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="251236829946604" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="876864120237598" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="582520054256175" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <comment>Unlock</comment>
+                                                <event-block sid="945997782072686">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="452190071890865" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="995488598265448" type="PlayerStuff">
+                                                            <param id="0" name="Instance variable">IsRegenerating</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Muro</comment>
+                                        <event-block sid="772474510952729">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="769194583888610" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">5</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="473684577426613" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="262607910503078" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="946851390837564" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="843520420983976" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="109732413427486" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkUtilityPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="298999686768864" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="181301722463177" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="610411498636180" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="532544255562750">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="113081284597358" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="927564863309699" type="PlayerStuff">
+                                                            <param id="0" name="Instance variable">WallInitialHealth</param>
+                                                            <param id="1" name="Value">100</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Sex pistols</comment>
+                                        <event-block sid="206779763413052">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="419341747883401" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">6</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="366076351831923" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkUtilityPointSpent</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="753937264991048" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="212023362300059" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="816916316724462" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="407841656190978" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="483482486741685" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkUtilityPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="404784588285192" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="560518366572214" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="576687475505581" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="639507633372461">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="493489857474905" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="969052017793391" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">Damage_Pistol</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
+                                                        <action id="-12" name="Subtract from" sid="153551539108504" type="WeaponsPlayer">
+                                                            <param id="0" name="Instance variable">FireRate_Pistol</param>
+                                                            <param id="1" name="Value">0.05</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>Reload perk</comment>
+                                        <event-block sid="732557147572705">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="183504360992753" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">7</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="522057472542521" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkUtilityPointSpent</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="805662313012464" type="PerkIcon">
+                                                    <param id="0" name="Instance variable">PerkRank</param>
+                                                    <param id="1" name="Value">SELF.PerkRank+1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="165187212070186" type="PerkIcon">
+                                                    <param id="0" name="Frame number">self.PerkRank</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="658640123869597" type="Perks">
+                                                    <param id="0" name="X">PerkIcon.PerkID</param>
+                                                    <param id="1" name="Y">IDX_PERK_RANK</param>
+                                                    <param id="2" name="Value">PerkIcon.PerkRank</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="420140393398010" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkPoints</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="500552253523978" type="PlayerStuff">
+                                                    <param id="0" name="Instance variable">PerkUtilityPointSpent</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="993534119533366" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="549042981382895" type="Function">
+                                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Perk_UID</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="288440881840208" type="Audio">
+                                                    <param id="0" name="Audio file">Perk_key</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;SFX&quot;</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="440660377984547">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="201729088089751" type="PerkIcon">
+                                                            <param id="0" name="Instance variable">PerkRank</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="603241921330268" type="PlayerStuff">
+                                                            <param id="0" name="Instance variable">CoverSpeed</param>
+                                                            <param id="1" name="Value">0.1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="683371960858468">
+                            <conditions>
+                                <condition id="0" name="On function" sid="137882391951396" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; LoadAmmo&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="839282200746538">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="117556760535986" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo1&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="954207787046956" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_SMG</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="474469441044641">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="634356113825293" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo2&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="565455260096087" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_Shotgun</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="523768389831655">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="756042683086488" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo3&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="465365009577764" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_Rifle</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="679752846766280">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="606132105217240" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo4&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="883783078564202" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_Explosivo</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="834465040764761">
+                            <conditions>
+                                <condition id="0" name="On function" sid="493228508404984" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; LoadAmmo&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="874995997453034">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="534387734245445" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo1&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="503511881312504" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_SMG</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="355113471722415">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="132124101769124" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo2&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="202834289084821" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_Shotgun</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="885902895294268">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="823433275882178" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo3&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="254965803128627" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_Rifle</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="531388858418417">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="693347934765147" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Ammo4&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="212810285258522" type="Text_Perk">
+                                            <param id="0" name="Text">WeaponsPlayer.Ammo_Explosivo</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="882388308702699">
+                            <conditions>
+                                <condition id="0" name="On function" sid="559208216843983" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; UpdatePerkPoints&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="196495948584746">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="229349469498668" type="Text_Perk">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;PerkPointsAmount&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="850969213306119" type="Text_Perk">
+                                            <param id="0" name="Text">PlayerStuff.PerkPoints</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="353043418822530">
+                            <conditions>
+                                <condition id="0" name="On function" sid="182552745093934" type="Function">
+                                    <param id="0" name="Name">&quot;M_Perks -&gt; JuicyPress&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="PerkID" sid="652340731927690" static="0" type="number">0</variable>
+                                <event-block sid="529533417172380">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="686891621971250" type="System">
+                                            <param id="0" name="Variable">PerkID</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="446244004115131">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="788330392307968" type="PerkIcon">
+                                            <param id="0" name="Unique ID">PerkID</param>
+                                        </condition>
+                                        <condition behavior="Sine" id="0" inverted="1" name="Is active" sid="183668772469167" type="PerkIcon" />
+                                        <condition id="-9" name="Layer is visible" sid="899686226821799" type="System">
+                                            <param id="0" name="Layer">&quot;PerkSystem&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Sine" id="0" name="Set active" sid="897150367064835" type="PerkIcon">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="482626245037149" type="System">
+                                            <param id="0" name="Seconds">0.12</param>
+                                        </action>
+                                        <action behavior="Sine" id="5" name="Set cycle position" sid="148561934277840" type="PerkIcon">
+                                            <param id="0" name="Cycle position">0</param>
+                                        </action>
+                                        <action behavior="Sine" id="0" name="Set active" sid="908060545072568" type="PerkIcon">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="312647696474906">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
